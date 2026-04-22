@@ -3,7 +3,7 @@
   "trailingSlash": false,
   "headers": [
     {
-      "source": "/(.*\\.(jpg|jpeg|png|webp|gif|svg))",
+      "source": "/:file.:ext(jpg|jpeg|png|webp|gif|svg)",
       "headers": [
         {
           "key": "Cache-Control",
