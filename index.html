@@ -332,36 +332,6 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   .fb-text p { font-size:15px; line-height:1.7; max-width:42ch; color:var(--ink-soft); margin:0 0 14px; }
   .fb-text .mini { font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--muted); margin-bottom:16px; }
 
-  /* BRANDS */
-  .brands-wrap { background: var(--forest); color: var(--bg); }
-  html[data-palette="ink"] .brands-wrap { background: #0a0907; }
-  .brands-wrap .section-head { border-color: rgba(236,231,222,0.2); }
-  .brands-wrap .section-head .num, .brands-wrap .section-head .tag { color: rgba(236,231,222,0.6); }
-  .brand-roll { display:grid; grid-template-columns: repeat(3,1fr); gap:1px; background: rgba(236,231,222,0.18); border:1px solid rgba(236,231,222,0.18); }
-  .brand-cell { background: var(--forest); padding: 40px 28px 32px; min-height: 220px; display:flex; flex-direction:column; justify-content:space-between; transition: background .3s; position: relative; overflow: hidden; }
-  html[data-palette="ink"] .brand-cell { background:#0a0907; }
-  .brand-cell:hover { background: #2a3830; }
-  html[data-palette="ink"] .brand-cell:hover { background:#14130f; }
-  .brand-cell > *:not(.brand-reveal) { transition: opacity .3s, transform .3s; position: relative; z-index: 2; }
-  .brand-cell:hover > *:not(.brand-reveal) { opacity: 0.12; }
-  .brand-reveal { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(236,231,222,0.12); opacity: 0; pointer-events: none; transition: opacity .35s ease; z-index: 3; }
-  .brand-cell:hover .brand-reveal { opacity: 1; }
-  .reveal-slot { background: #f4ede3; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-  .reveal-slot img { max-width: 88%; max-height: 80%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 6px 18px rgba(0,0,0,0.12)); }
-  .reveal-slot img[src=""], .reveal-slot img:not([src]) { display: none; }
-  .reveal-slot span { position: absolute; top: 10px; left: 10px; font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: 0.28em; text-transform: uppercase; color: #6b6558; z-index: 2; }
-  .reveal-slot:empty::after, .reveal-slot img:not([src]) + ::after {}
-  .reveal-slot:has(img:not([src])), .reveal-slot:has(img[src=""]) { background: linear-gradient(135deg, #f4ede3 0 50%, #ece7de 50% 100%); }
-  .reveal-slot:has(img:not([src]))::after, .reveal-slot:has(img[src=""])::after { content: 'image soon'; position: absolute; bottom: 12px; right: 12px; font-family: 'Jost', sans-serif; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: #a39c8f; }
-  .brand-cell .idx { font-family:'Bodoni Moda',serif; font-size:11px; letter-spacing:0.18em; color: rgba(236,231,222,0.5); }
-  .brand-cell h4 { font-family:'Bodoni Moda',serif; font-size: clamp(30px,3.8vw,50px); font-weight:400; letter-spacing:-0.01em; margin:18px 0 6px; line-height:1; }
-  .brand-cell h4 em { font-family:'Fraunces',serif; font-style:italic; font-weight:300; }
-  .brand-cell .origin { font-size:9px; letter-spacing:0.28em; text-transform:uppercase; color: rgba(236,231,222,0.55); }
-  .brand-cell .cat { font-family:'Fraunces',serif; font-style:italic; font-size:14px; color: rgba(236,231,222,0.8); margin-top: 18px; }
-  .brand-closing { display:grid; grid-template-columns: 1fr auto; align-items:baseline; padding-top: 28px; margin-top: 40px; border-top: 1px solid rgba(236,231,222,0.2); gap:20px; }
-  .brand-closing p { font-family:'Bodoni Moda',serif; font-style:italic; font-size: clamp(22px,2.6vw,32px); line-height:1.3; margin:0; max-width: 32ch; color: rgba(236,231,222,0.9); }
-  .brand-closing a { font-size:11px; letter-spacing:0.24em; text-transform:uppercase; padding-bottom:6px; border-bottom:1px solid currentColor; }
-
   /* KIDS BREAK */
   .kids-wrap { background: #fdfaf2; color:#1a1815; position:relative; overflow:hidden; }
   .kids-inner { max-width: var(--maxw); margin:0 auto; padding: clamp(70px,10vw,140px) var(--pad); position:relative; }
@@ -543,30 +513,6 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
     .fb-text h3 { font-size: 34px; margin-bottom: 12px; }
     .fb-text p { font-size: 15px; }
 
-    /* BRANDS — stacked, tap-to-expand */
-    .brand-roll { grid-template-columns: 1fr; }
-    .brand-cell { min-height: 0; padding: 28px 22px; }
-    .brand-cell h4 { font-size: 38px; margin: 10px 0 6px; }
-    .brand-cell .cat { margin-top: 10px; font-size: 14px; }
-    .brand-cell .idx { position: absolute; top: 22px; right: 22px; }
-
-    /* Mobile: reveal always visible as a strip beneath, not on hover */
-    .brand-cell { display: grid; grid-template-columns: 1fr; gap: 18px; }
-    .brand-cell > *:not(.brand-reveal) { opacity: 1 !important; }
-    .brand-reveal {
-      position: static; inset: auto; opacity: 1 !important; pointer-events: auto;
-      grid-template-columns: 1fr 1fr; gap: 1px;
-      background: rgba(236,231,222,0.18); aspect-ratio: 2/1;
-      margin-top: 4px;
-    }
-    .reveal-slot img { max-width: 80%; max-height: 75%; }
-    .reveal-slot span { font-size: 8px; top: 8px; left: 8px; }
-    .brand-cell:hover > *:not(.brand-reveal) { opacity: 1; }
-
-    .brand-closing { grid-template-columns: 1fr; gap: 18px; margin-top: 28px; padding-top: 22px; }
-    .brand-closing p { font-size: 22px; max-width: none; }
-    .brand-closing a { justify-self: start; }
-
     /* Kids */
     .kids-inner { padding: 60px var(--pad) 60px; }
     .kids-stripes { width: 32px; }
@@ -623,7 +569,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   <div class="nav-inner">
     <div class="nav-links">
       <a href="#about">About Us</a>
-      <a href="#brands">Brands We Carry</a>
+      <a href="#kids">Kids</a>
       <a href="#visit">Visit Us</a>
     </div>
     <a href="#top" class="wordmark" style="padding: 6px 14px; background: rgba(26,26,23,0.045); border-radius: 3px;">
@@ -642,7 +588,6 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <nav class="mm-links">
     <a href="#about">About <em>Us</em></a>
-    <a href="#brands">Brands we <em>carry</em></a>
     <a href="#kids">For <em>kids</em></a>
     <a href="#visit">Visit <em>us</em></a>
   </nav>
@@ -687,130 +632,6 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   </div>
 </div>
 
-<!-- BRANDS -->
-<section class="brands-wrap" id="brands">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="num">Nº 01 / 04</div>
-      <h2>Brands we <em>carry</em></h2>
-      <div class="tag">Hover to preview</div>
-    </div>
-    <div class="brand-roll">
-      <div class="brand-cell" data-brand="cartier">
-        <span class="idx">Nº 01</span>
-        <div>
-          <h4><em>Cartier</em></h4>
-          <div class="origin">Paris · 1847</div>
-          <div class="cat">Fine eyewear · optical &amp; sun</div>
-        </div>
-        <div class="brand-reveal">
-          <div class="reveal-slot"><span>Optical</span><img src="cartier-optical.jpg" alt="Cartier optical eyeglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-          <div class="reveal-slot"><span>Sun</span><img src="brand-cartier-oval.png" alt="Cartier sunglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="brand-cell" data-brand="dior">
-        <span class="idx">Nº 02</span>
-        <div>
-          <h4>Dior</h4>
-          <div class="origin">Paris · 1946</div>
-          <div class="cat">Couture optical &amp; sun</div>
-        </div>
-        <div class="brand-reveal">
-          <div class="reveal-slot"><span>Optical</span><img src="dior-optical.png" alt="Dior optical eyeglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-          <div class="reveal-slot"><span>Sun</span><img src="brand-dior.png" alt="Dior sunglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="brand-cell" data-brand="gucci">
-        <span class="idx">Nº 03</span>
-        <div>
-          <h4><em>Gucci</em></h4>
-          <div class="origin">Florence · 1921</div>
-          <div class="cat">Statement sun &amp; optical</div>
-        </div>
-        <div class="brand-reveal">
-          <div class="reveal-slot"><span>Optical</span><img src="gucci-optical.jpg" alt="Gucci optical eyeglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-          <div class="reveal-slot"><span>Sun</span><img src="gucci-sun.jpg" alt="Gucci sunglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="brand-cell" data-brand="fendi">
-        <span class="idx">Nº 04</span>
-        <div>
-          <h4>Fendi</h4>
-          <div class="origin">Rome · 1925</div>
-          <div class="cat">Fashion optical &amp; sun</div>
-        </div>
-        <div class="brand-reveal">
-          <div class="reveal-slot"><span>Optical</span><img src="fendi-optical.webp" alt="Fendi optical eyeglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-          <div class="reveal-slot"><span>Sun</span><img src="fendi-sun.webp" alt="Fendi sunglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="brand-cell" data-brand="balmain">
-        <span class="idx">Nº 05</span>
-        <div>
-          <h4><em>Balmain</em></h4>
-          <div class="origin">Paris · 1945</div>
-          <div class="cat">Sculpted sun &amp; optical</div>
-        </div>
-        <div class="brand-reveal">
-          <div class="reveal-slot"><span>Optical</span><img src="balmain-optical.jpg" alt="Balmain optical eyeglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-          <div class="reveal-slot"><span>Sun</span><img src="balmain-sun.jpg" alt="Balmain sunglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="brand-cell" data-brand="mauijim">
-        <span class="idx">Nº 06</span>
-        <div>
-          <h4>Maui Jim</h4>
-          <div class="origin">Lahaina · 1980</div>
-          <div class="cat">Polarized sun only</div>
-        </div>
-        <div class="brand-reveal">
-          <div class="reveal-slot"><span>Sun</span><img src="brand-mauijim.jpg" alt="Maui Jim polarized sunglasses lifestyle — available at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-          <div class="reveal-slot"><span>Sun</span><img src="mauijim-sun-2.jpg" alt="Maui Jim polarized sunglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="brand-cell" data-brand="loewe">
-        <span class="idx">Nº 07</span>
-        <div>
-          <h4><em>Loewe</em></h4>
-          <div class="origin">Madrid · 1846</div>
-          <div class="cat">Sculpted optical &amp; sun</div>
-        </div>
-        <div class="brand-reveal">
-          <div class="reveal-slot"><span>Optical</span><img src="loewe-optical.jpg" alt="Loewe optical eyeglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-          <div class="reveal-slot"><span>Sun</span><img src="brand-loewe.jpg" alt="Loewe sunglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="brand-cell" data-brand="dita">
-        <span class="idx">Nº 08</span>
-        <div>
-          <h4>Dita</h4>
-          <div class="origin">Los Angeles · 1995</div>
-          <div class="cat">Precision-crafted optical &amp; sun</div>
-        </div>
-        <div class="brand-reveal">
-          <div class="reveal-slot"><span>Optical</span><img src="dita-optical.webp" alt="Dita optical eyeglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-          <div class="reveal-slot"><span>Sun</span><img src="dita-sun.webp" alt="Dita sunglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-        </div>
-      </div>
-      <div class="brand-cell" data-brand="oliverpeoples">
-        <span class="idx">Nº 09</span>
-        <div>
-          <h4><em>Oliver Peoples</em></h4>
-          <div class="origin">Los Angeles · 1987</div>
-          <div class="cat">Tailored optical &amp; sun</div>
-        </div>
-        <div class="brand-reveal">
-          <div class="reveal-slot"><span>Optical</span><img src="oliverpeoples-optical.jpg" alt="Oliver Peoples optical eyeglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-          <div class="reveal-slot"><span>Sun</span><img src="oliverpeoples-sun.jpg" alt="Oliver Peoples sunglasses at Eye Atelier in Old Bridge, NJ" loading="lazy"></div>
-        </div>
-      </div>
-    </div>
-    <div class="brand-closing">
-      <p>A roster curated, not assembled — each house represented with the pieces we would choose for ourselves.</p>
-      <a href="#visit">Browse in-store →</a>
-    </div>
-  </div>
-</section>
 
 <!-- KIDS -->
 <section class="kids-wrap" id="kids">
