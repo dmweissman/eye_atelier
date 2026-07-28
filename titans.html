@@ -299,6 +299,12 @@
   .offer-tag { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--partner-accent); }
   .offer-card h3 { font-family: 'Bodoni Moda', serif; font-weight: 500; font-size: 22px; letter-spacing: -0.005em; line-height: 1.25; }
   .offer-card p.offer-desc { font-size: 15px; line-height: 1.65; color: var(--fg-soft); flex-grow: 1; }
+  .offer-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 4px 0 2px; }
+  .offer-list li {
+    display: flex; align-items: baseline; gap: 12px;
+    font-size: 16px; color: var(--fg);
+  }
+  .offer-list b { font-family: 'Bodoni Moda', serif; font-weight: 500; color: var(--partner-accent); font-size: 18px; white-space: nowrap; }
   .offer-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px; }
   .offer-pill { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--rule-strong); color: var(--fg-soft); }
   .offer-pill.code { color: var(--fg); border-color: var(--partner-accent); font-family: 'Bodoni Moda', serif; letter-spacing: 0.08em; }
@@ -467,37 +473,34 @@
 <!-- ======================== 3. EXCLUSIVE OFFERS ==========================
      EDIT PROMOTIONS HERE — this is the single place to manage Titans offers.
      Copy an .offer-card block to add a new promotion, or delete one to
-     retire it. Fields: offer-tag (small label), h3 (title), offer-desc
-     (short description), offer-meta pills (Expiration date is required by
-     convention; "code" pill is optional — omit the whole pill if there's
-     no promo code). Leave pricing out entirely unless you want a specific
-     dollar amount to show.
-
-     As of this deploy, no specific offers have been provided yet, so this
-     section shows a single generic in-store card below instead of fake
-     sample promotions. Replace it with real .offer-card blocks (see the
-     git history of this file for the original 3-card layout/markup to
-     copy) as soon as offers are finalized.
+     retire it. Fields: offer-tag (small label), h3 (title), offer-list
+     (bulleted discount lines — each <li> is "<b>amount</b> description"),
+     offer-desc (closing instructions), offer-meta pills (optional; used
+     here for "No Code Needed" since this offer isn't code-based).
 ======================================================================== -->
 <section class="block offers" id="offers">
   <div class="block-inner">
     <div class="offers-head">
       <div>
         <p class="kicker reveal">Titans Community Offers</p>
-        <h2 class="block-title reveal reveal-1">Exclusive <em>offers</em>.</h2>
+        <h2 class="block-title reveal reveal-1">Exclusive offers for the <em>Titans</em> community.</h2>
       </div>
       <p class="offers-lede reveal reveal-1">For Titans players, coaches, staff, and family — just mention you're with the Titans community when you call or visit.</p>
     </div>
 
     <div class="offers-grid">
 
-      <!-- INTERIM CARD — replace with real .offer-card blocks once offers are finalized -->
       <div class="offer-card reveal">
-        <span class="offer-tag">In-Store</span>
-        <h3>Ask About Current Titans Offers</h3>
-        <p class="offer-desc">We're putting together exclusive in-store offers for the Titans community. Call or stop by the boutique to hear what's currently available.</p>
+        <span class="offer-tag">🏒 Titans Exclusive</span>
+        <h3>Titans Team Members &amp; Families</h3>
+        <ul class="offer-list">
+          <li><b>40% off</b><span>All children's lenses</span></li>
+          <li><b>30% off</b><span>All other prescription lenses</span></li>
+          <li><b>20–40% off</b><span>Select frames</span></li>
+        </ul>
+        <p class="offer-desc">Simply show us you're part of the New Jersey Titans community — player, coach, staff member, or family — and we'll apply your exclusive savings.</p>
         <div class="offer-meta">
-          <span class="offer-pill">Available In-Store</span>
+          <span class="offer-pill">No Code Needed</span>
         </div>
       </div>
 
