@@ -400,6 +400,13 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
     .areas-col ul { grid-template-columns: 1fr 1fr; }
   }
 
+  /* NETWORK */
+  .network-wrap { background: var(--bg-deep); padding: 0 var(--pad) clamp(60px, 9vw, 110px); }
+  .network-inner { max-width: var(--maxw); margin: 0 auto; }
+  .network-inner p { font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft); opacity: 0.85; margin-bottom: 18px; }
+  .network-logos { display: flex; flex-wrap: wrap; align-items: center; gap: 34px; }
+  .network-logos img { height: 60px; width: auto; display: block; }
+
   /* VISIT */
   .visit-wrap { background: var(--ink); color: var(--bg); }
   html[data-palette="ink"] .visit-wrap { background: #0a0907; }
@@ -762,6 +769,17 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
           <li>Freehold</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- NETWORK -->
+<section class="network-wrap" aria-labelledby="network-heading">
+  <div class="network-inner">
+    <p id="network-heading">Eye Atelier are in-network providers for</p>
+    <div class="network-logos">
+      <img src="eyemed-logo.png" alt="EyeMed" loading="lazy">
+      <img src="davisvision-logo.png" alt="Davis Vision" loading="lazy">
     </div>
   </div>
 </section>
