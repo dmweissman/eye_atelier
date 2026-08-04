@@ -293,6 +293,30 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   .hero-image .tag { position:absolute; top:20px; left:20px; background:var(--bg); padding:8px 14px; font-size:10px; letter-spacing:0.24em; text-transform:uppercase; }
   .hero-image .caption { position:absolute; bottom:18px; right:18px; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#fff; text-align:right; }
 
+  /* PROMO VIDEO */
+  .promo-video-wrap { position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; background:#000; }
+  .promo-video { width:100%; height:100%; object-fit:cover; display:block; }
+  .promo-video-tag { position:absolute; top:20px; left:var(--pad); background:var(--bg); padding:8px 14px; font-size:10px; letter-spacing:0.24em; text-transform:uppercase; z-index:2; }
+  .promo-video-sound {
+    position:absolute; bottom:24px; right:var(--pad); z-index:2;
+    width:46px; height:46px; border-radius:50%;
+    background:rgba(10,9,7,0.45); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
+    border:1px solid rgba(255,255,255,0.4); color:#fff;
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+  .promo-video-sound:hover { background:rgba(10,9,7,0.7); border-color:rgba(255,255,255,0.7); }
+  .promo-video-sound svg { width:18px; height:18px; }
+  .promo-video-sound .icon-muted { display:block; }
+  .promo-video-sound .icon-on { display:none; }
+  .promo-video-sound[aria-pressed="true"] .icon-muted { display:none; }
+  .promo-video-sound[aria-pressed="true"] .icon-on { display:block; }
+  @media (max-width: 640px) {
+    .promo-video-wrap { aspect-ratio: 4/5; }
+    .promo-video-tag { top:14px; padding:6px 10px; font-size:9px; }
+    .promo-video-sound { bottom:16px; width:40px; height:40px; }
+  }
+
   /* FEATURED BRANDS */
   .brands-strip { background: var(--bg-deep); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding: clamp(50px, 8vw, 90px) var(--pad); }
   .brands-strip-inner { max-width: var(--maxw); margin: 0 auto; }
@@ -659,6 +683,18 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
       <div class="caption">Eye Atelier<br>Old Bridge, NJ</div>
     </div>
   </div>
+</section>
+
+<!-- PROMO VIDEO -->
+<section class="promo-video-wrap" aria-label="Eye Atelier promotional video">
+  <div class="promo-video-tag">Eye Atelier</div>
+  <video class="promo-video" id="promoVideo" autoplay muted loop playsinline preload="auto" poster="store-counter.jpeg">
+    <source src="eye-atelier-promo.mp4" type="video/mp4">
+  </video>
+  <button type="button" class="promo-video-sound" id="promoSoundBtn" aria-pressed="false" aria-label="Turn sound on">
+    <svg class="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="4 9 8 9 12 5 12 19 8 15 4 15 4 9"></polygon><line x1="16" y1="9" x2="21" y2="14"></line><line x1="21" y1="9" x2="16" y2="14"></line></svg>
+    <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polygon points="4 9 8 9 12 5 12 19 8 15 4 15 4 9"></polygon><path d="M16 8.5a4.5 4.5 0 0 1 0 7"></path><path d="M18.5 6a8 8 0 0 1 0 12"></path></svg>
+  </button>
 </section>
 
 <!-- FEATURED BRANDS -->
@@ -1045,6 +1081,18 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   document.querySelectorAll('img[onerror]').forEach(img => {
     // handled inline
   });
+
+  // Promo video sound toggle
+  const promoVideo = document.getElementById('promoVideo');
+  const promoSoundBtn = document.getElementById('promoSoundBtn');
+  if (promoVideo && promoSoundBtn) {
+    promoSoundBtn.addEventListener('click', () => {
+      const willUnmute = promoVideo.muted;
+      promoVideo.muted = !willUnmute;
+      promoSoundBtn.setAttribute('aria-pressed', String(willUnmute));
+      promoSoundBtn.setAttribute('aria-label', willUnmute ? 'Turn sound off' : 'Turn sound on');
+    });
+  }
 
   // Lightbox
   const lightbox = document.getElementById('lightbox');
