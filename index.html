@@ -293,12 +293,20 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   .hero-image .tag { position:absolute; top:20px; left:20px; background:var(--bg); padding:8px 14px; font-size:10px; letter-spacing:0.24em; text-transform:uppercase; }
   .hero-image .caption { position:absolute; bottom:18px; right:18px; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#fff; text-align:right; }
 
-  /* MARQUEE */
-  .marquee { border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); overflow:hidden; padding:20px 0; background:var(--bg-deep); }
-  .marquee-track { display:flex; gap:70px; white-space:nowrap; animation: slide 47s linear infinite; font-family:'Bodoni Moda',serif; font-size:26px; font-style:italic; font-weight:300; }
-  .marquee-track span { display:flex; align-items:center; gap:70px; }
-  .marquee-track span::after { content:"✦"; font-size:13px; font-style:normal; color:var(--accent); }
-  @keyframes slide { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  /* FEATURED BRANDS */
+  .brands-strip { background: var(--bg-deep); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); padding: clamp(50px, 8vw, 90px) var(--pad); }
+  .brands-strip-inner { max-width: var(--maxw); margin: 0 auto; }
+  .brands-strip-head { margin-bottom: clamp(28px, 4vw, 44px); }
+  .brands-strip-head .num { font-family:'Bodoni Moda',serif; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; opacity:0.65; margin-bottom:10px; }
+  .brands-strip-head h2 { font-family:'Bodoni Moda',serif; font-weight:400; font-size: clamp(32px, 4.4vw, 54px); line-height:1.05; letter-spacing:-0.01em; }
+  .brands-strip-head h2 em { font-family:'Fraunces',serif; font-style:italic; font-weight:300; }
+  .brand-grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:1px; background:var(--rule); border:1px solid var(--rule); border-radius:8px; overflow:hidden; }
+  @media (min-width: 640px) { .brand-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (min-width: 980px) { .brand-grid { grid-template-columns: repeat(4, 1fr); } }
+  .brand-tile { background:#fdfaf2; padding:30px 16px; display:flex; align-items:center; justify-content:center; min-height:96px; transition: background 0.25s ease; }
+  .brand-tile:hover { background: var(--bg); }
+  .brand-tile span { font-family:'Bodoni Moda',serif; font-size: clamp(15px, 1.6vw, 19px); letter-spacing:0.02em; color: var(--ink-soft); text-align:center; transition: color 0.25s ease; }
+  .brand-tile:hover span { color: var(--ink); }
 
   /* SECTION */
   section { scroll-margin-top: 80px; }
@@ -499,10 +507,8 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
     .hero-image .tag { top: 14px; left: 14px; padding: 6px 10px; font-size: 9px; }
     .hero-image .caption { bottom: 14px; right: 14px; font-size: 9px; }
 
-    /* Marquee */
-    .marquee { padding: 14px 0; }
-    .marquee-track { font-size: 20px; gap: 44px; animation-duration: 33s; }
-    .marquee-track span { gap: 44px; }
+    /* Featured brands */
+    .brands-strip { padding: 44px var(--pad); }
 
     /* Section heads */
     .wrap { padding: 56px var(--pad) 56px; }
@@ -634,13 +640,29 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track">
-    <span>Cartier</span><span>Dior</span><span>Gucci</span><span>Fendi</span><span>Balmain</span><span>Maui Jim</span><span>Matsuda</span><span>Chanel</span><span>Dita</span><span>Oliver Peoples</span>
-    <span>Cartier</span><span>Dior</span><span>Gucci</span><span>Fendi</span><span>Balmain</span><span>Maui Jim</span><span>Matsuda</span><span>Chanel</span><span>Dita</span><span>Oliver Peoples</span>
+<!-- FEATURED BRANDS -->
+<section class="brands-strip" id="brands" aria-labelledby="brands-heading">
+  <div class="brands-strip-inner">
+    <div class="brands-strip-head">
+      <div class="num">Nº 01½</div>
+      <h2 id="brands-heading">Luxury houses, <em>curated</em>.</h2>
+    </div>
+    <div class="brand-grid">
+      <div class="brand-tile"><span>Cartier</span></div>
+      <div class="brand-tile"><span>Dita</span></div>
+      <div class="brand-tile"><span>Lindberg</span></div>
+      <div class="brand-tile"><span>Matsuda</span></div>
+      <div class="brand-tile"><span>Akoni</span></div>
+      <div class="brand-tile"><span>Mykita</span></div>
+      <div class="brand-tile"><span>Oliver Peoples</span></div>
+      <div class="brand-tile"><span>Gucci</span></div>
+      <div class="brand-tile"><span>Saint Laurent</span></div>
+      <div class="brand-tile"><span>Maui Jim</span></div>
+      <div class="brand-tile"><span>Ray-Ban</span></div>
+      <div class="brand-tile"><span>Chanel</span></div>
+    </div>
   </div>
-</div>
+</section>
 
 
 <!-- KIDS -->
