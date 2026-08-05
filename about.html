@@ -191,6 +191,64 @@
   @media (max-width: 780px) {
     .team-grid { grid-template-columns: 1fr; gap: 44px; max-width: 420px; margin: 0 auto; }
   }
+
+  /* TEAM — member with a real photo/video (e.g. "Meet Lee") */
+  .team-photo-btn {
+    padding: 0; border: 1px solid var(--rule-strong); cursor: pointer;
+    background: var(--bg-deep); width: 100%; font: inherit;
+  }
+  .team-photo-btn img { object-position: top center; transition: transform 0.5s ease; }
+  .team-photo-btn:hover img { transform: scale(1.03); }
+  .team-photo-play {
+    position: absolute; inset: 0; z-index: 1;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
+    background: linear-gradient(180deg, rgba(10,9,7,0) 55%, rgba(10,9,7,0.55) 100%);
+  }
+  .team-photo-play .play-ring {
+    width: 62px; height: 62px; border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.75);
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(10,9,7,0.28);
+    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .team-photo-btn:hover .play-ring { background: rgba(10,9,7,0.5); transform: scale(1.06); }
+  .team-photo-play .play-ring svg { width: 18px; height: 18px; margin-left: 3px; }
+  .team-photo-play .meet-label {
+    font-family: 'Bodoni Moda', serif; font-style: italic; font-weight: 400;
+    font-size: 19px; color: #fff;
+    margin-top: -4px;
+  }
+
+  /* VIDEO MODAL */
+  .video-modal {
+    position: fixed; inset: 0; z-index: 1000;
+    display: none; align-items: center; justify-content: center;
+    padding: clamp(20px, 5vw, 50px);
+    background: rgba(10,9,7,0.72);
+    backdrop-filter: blur(3px); -webkit-backdrop-filter: blur(3px);
+  }
+  .video-modal.is-open { display: flex; }
+  .video-modal-panel {
+    position: relative;
+    max-height: 88vh; max-width: 92vw;
+    line-height: 0;
+  }
+  .video-modal-media {
+    background: #000;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .video-modal-panel video { display: block; max-height: 88vh; max-width: 92vw; height: auto; width: auto; }
+  .video-modal-close {
+    position: absolute; top: -18px; right: -18px; z-index: 2;
+    width: 40px; height: 40px; border-radius: 50%;
+    background: var(--bg); border: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; line-height: 1; color: var(--ink); cursor: pointer;
+  }
+  @media (max-width: 640px) { .video-modal-close { top: -44px; right: 0; background: transparent; border: none; color: #fff; font-size: 26px; } }
 </style>
 </head>
 <body>
@@ -291,13 +349,15 @@
   <div class="team-grid">
 
     <div class="team-card">
-      <div class="team-photo">
-        <div class="team-photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
-          <span class="tpp-label">Headshot Coming Soon</span>
-          <span class="tpp-video">Introduction Video</span>
+      <button type="button" class="team-photo team-photo-btn" data-video="lee-weissman-intro.mp4" data-poster="lee-weissman-poster.jpg" aria-label="Meet Lee — play introduction video">
+        <img src="lee-weissman-poster.jpg" alt="Lee Weissman, Eye Atelier">
+        <div class="team-photo-play">
+          <span class="play-ring">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M6 4.5v15l13-7.5z"></path></svg>
+          </span>
+          <span class="meet-label">Meet Lee</span>
         </div>
-      </div>
+      </button>
     </div>
 
     <div class="team-card">
@@ -391,6 +451,48 @@
   <a href="tel:+17326968933" class="ms-call">Call</a>
   <a href="/#visit" class="ms-book">Book a Fitting</a>
 </div>
+
+<div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-hidden="true">
+  <div class="video-modal-panel">
+    <button type="button" class="video-modal-close" id="videoModalClose" aria-label="Close">&times;</button>
+    <div class="video-modal-media">
+      <video id="videoModalPlayer" controls playsinline preload="metadata"></video>
+    </div>
+  </div>
+</div>
+
+<script>
+  var videoModal = document.getElementById('videoModal');
+  var videoModalPlayer = document.getElementById('videoModalPlayer');
+  var openVideoModal = function (src, poster) {
+    if (poster) videoModalPlayer.setAttribute('poster', poster);
+    videoModalPlayer.setAttribute('src', src);
+    videoModal.classList.add('is-open');
+    videoModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  var closeVideoModal = function () {
+    videoModalPlayer.pause();
+    videoModalPlayer.removeAttribute('src');
+    videoModalPlayer.removeAttribute('poster');
+    videoModalPlayer.load();
+    videoModal.classList.remove('is-open');
+    videoModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+  document.querySelectorAll('[data-video]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      openVideoModal(btn.getAttribute('data-video'), btn.getAttribute('data-poster'));
+    });
+  });
+  document.getElementById('videoModalClose').addEventListener('click', closeVideoModal);
+  videoModal.addEventListener('click', function (e) {
+    if (e.target === videoModal) closeVideoModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeVideoModal();
+  });
+</script>
 
 </body>
 </html>
