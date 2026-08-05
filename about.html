@@ -38,27 +38,59 @@
 <style>
   /* ============ ABOUT — bespoke sections (extends landing.css tokens) ============ */
 
-  .about-hero {
-    max-width: var(--maxw); margin: 0 auto;
-    padding: clamp(50px, 8vw, 100px) var(--pad) clamp(40px, 6vw, 70px);
+  /* CINEMATIC HERO */
+  .cinematic-hero {
+    position: relative;
+    min-height: clamp(520px, 88vh, 920px);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    background: var(--forest);
   }
-  .about-hero .eyebrow { text-align: center; }
-  .about-hero h1 {
+  .cinematic-hero-media { position: absolute; inset: 0; }
+  .cinematic-hero-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cinematic-hero-media::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(10,9,7,0.5) 0%, rgba(10,9,7,0.38) 45%, rgba(10,9,7,0.58) 100%);
+  }
+  .cinematic-hero-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 0 var(--pad);
+    max-width: 46ch;
+  }
+  .cinematic-hero-content h1 {
     font-family: 'Bodoni Moda', serif;
     font-weight: 400;
-    font-size: clamp(44px, 7.4vw, 96px);
-    line-height: 1.02;
-    letter-spacing: -0.02em;
-    text-align: center;
-    max-width: 18ch;
-    margin: 18px auto 26px;
+    font-size: clamp(42px, 6.4vw, 78px);
+    line-height: 1.04;
+    letter-spacing: -0.015em;
+    color: #fff;
+    margin: 18px 0 24px;
   }
-  .about-hero h1 em { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; }
-  .about-hero .lede {
-    text-align: center;
-    max-width: 52ch;
-    margin: 0 auto;
-    font-size: clamp(18px, 2vw, 23px);
+  .cinematic-hero-content p {
+    font-family: 'Fraunces', serif;
+    font-style: italic; font-weight: 300;
+    font-size: clamp(18px, 2.1vw, 25px);
+    line-height: 1.5;
+    color: rgba(255,255,255,0.9);
+  }
+  .scroll-indicator {
+    position: absolute; left: 50%; bottom: clamp(24px, 4vw, 44px); z-index: 2;
+    transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    color: rgba(255,255,255,0.82);
+  }
+  .scroll-indicator span {
+    font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase;
+  }
+  .scroll-indicator svg { width: 14px; height: 20px; animation: scrollBob 2.2s ease-in-out infinite; }
+  @keyframes scrollBob {
+    0%, 100% { transform: translateY(0); opacity: 0.55; }
+    50% { transform: translateY(6px); opacity: 1; }
+  }
+  @media (max-width: 640px) {
+    .cinematic-hero { min-height: 78vh; }
   }
 
   /* SECTION SCAFFOLD */
@@ -178,11 +210,19 @@
   <a href="/">Home</a><span class="sep">·</span>Our Story
 </nav>
 
-<!-- HERO -->
-<section class="about-hero">
-  <p class="eyebrow">The Atelier</p>
-  <h1>Not a shop. <em>An atelier.</em></h1>
-  <p class="lede">A small, deliberate boutique for designer eyewear in Old Bridge, New Jersey — built around curation, craft, and a fitting that takes as long as it needs to.</p>
+<!-- CINEMATIC HERO -->
+<section class="cinematic-hero">
+  <div class="cinematic-hero-media">
+    <img src="store-counter.jpeg" alt="Eye Atelier luxury optical boutique interior in Old Bridge, NJ" loading="eager">
+  </div>
+  <div class="cinematic-hero-content">
+    <h1>Our Story</h1>
+    <p>Luxury eyewear is more than what you wear. It's how you see the world—and how the world sees you.</p>
+  </div>
+  <a href="#story" class="scroll-indicator" aria-label="Scroll to discover">
+    <span>Scroll to Discover</span>
+    <svg viewBox="0 0 14 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M7 1v16"></path><path d="M1.5 12 7 17.5 12.5 12"></path></svg>
+  </a>
 </section>
 
 <!-- OUR STORY -->
