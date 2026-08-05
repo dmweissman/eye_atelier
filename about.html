@@ -193,32 +193,21 @@
   }
 
   /* TEAM — member with a real photo/video (e.g. "Meet Lee") */
-  .team-photo-btn {
-    padding: 0; border: 1px solid var(--rule-strong); cursor: pointer;
-    background: var(--bg-deep); width: 100%; font: inherit;
+  .team-photo-portrait { background: var(--bg-deep); }
+  .team-photo-portrait img { object-position: top center; }
+  .team-video-cta {
+    display: inline-flex; align-items: center; gap: 9px;
+    align-self: center;
+    margin-top: 24px;
+    padding: 14px 30px;
+    border: 1px solid #a8873f; border-radius: 999px;
+    color: #a8873f; background: transparent;
+    font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
   }
-  .team-photo-btn img { object-position: top center; transition: transform 0.5s ease; }
-  .team-photo-btn:hover img { transform: scale(1.03); }
-  .team-photo-play {
-    position: absolute; inset: 0; z-index: 1;
-    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px;
-    background: linear-gradient(180deg, rgba(10,9,7,0) 55%, rgba(10,9,7,0.55) 100%);
-  }
-  .team-photo-play .play-ring {
-    width: 62px; height: 62px; border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.75);
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(10,9,7,0.28);
-    backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
-    transition: background 0.2s ease, transform 0.2s ease;
-  }
-  .team-photo-btn:hover .play-ring { background: rgba(10,9,7,0.5); transform: scale(1.06); }
-  .team-photo-play .play-ring svg { width: 18px; height: 18px; margin-left: 3px; }
-  .team-photo-play .meet-label {
-    font-family: 'Bodoni Moda', serif; font-style: italic; font-weight: 400;
-    font-size: 19px; color: #fff;
-    margin-top: -4px;
-  }
+  .team-video-cta .glyph { font-size: 9px; }
+  .team-video-cta:hover { background: #a8873f; color: #fff; }
 
   /* VIDEO MODAL */
   .video-modal {
@@ -370,14 +359,11 @@
   <div class="team-grid">
 
     <div class="team-card">
-      <button type="button" class="team-photo team-photo-btn" data-video="lee-weissman-intro.mp4" data-poster="lee-weissman-poster.jpg" aria-label="Meet Lee — play introduction video">
+      <div class="team-photo team-photo-portrait">
         <img src="lee-weissman-poster.jpg" alt="Lee Weissman, Eye Atelier">
-        <div class="team-photo-play">
-          <span class="play-ring">
-            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M6 4.5v15l13-7.5z"></path></svg>
-          </span>
-          <span class="meet-label">Meet Lee</span>
-        </div>
+      </div>
+      <button type="button" class="team-video-cta" data-video="lee-weissman-intro.mp4" data-poster="lee-weissman-poster.jpg" aria-label="Meet Lee — play introduction video">
+        <span class="glyph">▶</span> Meet Lee
       </button>
     </div>
 
