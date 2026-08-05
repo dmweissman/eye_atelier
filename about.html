@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Story | Eye Atelier — Luxury Optical Boutique in Old Bridge, NJ</title>
+<meta name="description" content="Eye Atelier is a luxury optical boutique in Old Bridge, NJ. Discover our story, our philosophy on curation and fit, and the people behind the counter.">
+<link rel="canonical" href="https://www.eyeatelier.com/about">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Eye Atelier">
+<meta property="og:title" content="Our Story | Eye Atelier">
+<meta property="og:description" content="A small, deliberate boutique for designer eyewear — curation, craft, and a fitting that takes as long as it needs to.">
+<meta property="og:url" content="https://www.eyeatelier.com/about">
+<meta property="og:image" content="https://www.eyeatelier.com/showroom.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Our Story | Eye Atelier">
+<meta name="twitter:description" content="A small, deliberate boutique for designer eyewear in Old Bridge, NJ.">
+<meta name="twitter:image" content="https://www.eyeatelier.com/showroom.jpg">
+<meta name="theme-color" content="#1a1a17">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;0,6..96,900;1,6..96,400;1,6..96,700&family=Jost:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/landing.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.eyeatelier.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Our Story", "item": "https://www.eyeatelier.com/about" }
+  ]
+}
+</script>
+
+<style>
+  /* ============ ABOUT — bespoke sections (extends landing.css tokens) ============ */
+
+  .about-hero {
+    max-width: var(--maxw); margin: 0 auto;
+    padding: clamp(50px, 8vw, 100px) var(--pad) clamp(40px, 6vw, 70px);
+  }
+  .about-hero .eyebrow { text-align: center; }
+  .about-hero h1 {
+    font-family: 'Bodoni Moda', serif;
+    font-weight: 400;
+    font-size: clamp(44px, 7.4vw, 96px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-align: center;
+    max-width: 18ch;
+    margin: 18px auto 26px;
+  }
+  .about-hero h1 em { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; }
+  .about-hero .lede {
+    text-align: center;
+    max-width: 52ch;
+    margin: 0 auto;
+    font-size: clamp(18px, 2vw, 23px);
+  }
+
+  /* SECTION SCAFFOLD */
+  .about-section { max-width: var(--maxw); margin: 0 auto; padding: clamp(70px, 10vw, 140px) var(--pad); }
+  .about-section + .about-section { border-top: 1px solid var(--rule); }
+  .about-eyebrow-row {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 20px;
+    margin-bottom: clamp(40px, 6vw, 70px);
+  }
+  .about-eyebrow-row .eyebrow { margin: 0; }
+  .about-eyebrow-row .count { font-family: 'Bodoni Moda', serif; font-size: 13px; letter-spacing: 0.1em; color: var(--ink-soft); opacity: 0.6; }
+
+  /* OUR STORY — asymmetric editorial */
+  .story-grid { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: clamp(40px, 6vw, 90px); align-items: center; }
+  .story-media { position: relative; aspect-ratio: 4/5; overflow: hidden; background: var(--paper, #f4ede3); }
+  .story-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .story-copy h2 {
+    font-family: 'Bodoni Moda', serif; font-weight: 400;
+    font-size: clamp(34px, 4.4vw, 56px); line-height: 1.06; letter-spacing: -0.015em;
+    max-width: 12ch; margin-bottom: 28px;
+  }
+  .story-copy h2 em { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; }
+  .story-copy p { font-size: 17px; line-height: 1.8; color: var(--ink-soft); max-width: 52ch; margin-bottom: 22px; }
+  .story-copy p:last-of-type { margin-bottom: 0; }
+  .story-quote {
+    margin-top: 34px;
+    padding-top: 30px;
+    border-top: 1px solid var(--rule);
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
+    font-size: clamp(20px, 2.2vw, 25px); line-height: 1.45;
+    color: var(--ink); max-width: 44ch;
+  }
+  .story-quote span { display: block; margin-top: 14px; font-family: 'Jost', sans-serif; font-style: normal; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink-soft); opacity: 0.7; }
+
+  @media (max-width: 900px) {
+    .story-grid { grid-template-columns: 1fr; }
+    .story-media { max-width: 420px; margin: 0 auto; }
+  }
+
+  /* OUR PHILOSOPHY — three pillars */
+  .philosophy-head { text-align: center; max-width: 50ch; margin: 0 auto clamp(50px, 7vw, 90px); }
+  .philosophy-head h2 {
+    font-family: 'Bodoni Moda', serif; font-weight: 400;
+    font-size: clamp(34px, 4.4vw, 56px); line-height: 1.06; letter-spacing: -0.015em;
+  }
+  .philosophy-head h2 em { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; }
+  .philosophy-head p { margin-top: 20px; font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: clamp(17px, 1.9vw, 21px); color: var(--ink-soft); line-height: 1.5; }
+  .philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(30px, 4vw, 20px); }
+  .philosophy-item { padding: 0 clamp(0px, 3vw, 34px); text-align: center; }
+  .philosophy-item .n {
+    font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 54px; line-height: 1;
+    color: var(--accent); margin-bottom: 22px;
+  }
+  .philosophy-item .n em { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; }
+  .philosophy-item h3 { font-family: 'Bodoni Moda', serif; font-weight: 500; font-size: 22px; letter-spacing: -0.005em; margin-bottom: 12px; }
+  .philosophy-item p { font-size: 15px; line-height: 1.7; color: var(--ink-soft); max-width: 30ch; margin: 0 auto; }
+  @media (max-width: 780px) {
+    .philosophy-grid { grid-template-columns: 1fr; gap: 44px; }
+    .philosophy-item { border-top: 1px solid var(--rule); padding-top: 36px; }
+    .philosophy-item:first-child { border-top: none; padding-top: 0; }
+  }
+
+  /* MEET OUR TEAM */
+  .team-head { max-width: 60ch; margin-bottom: clamp(50px, 7vw, 90px); }
+  .team-head h2 {
+    font-family: 'Bodoni Moda', serif; font-weight: 400;
+    font-size: clamp(34px, 4.4vw, 56px); line-height: 1.06; letter-spacing: -0.015em;
+    margin-bottom: 20px;
+  }
+  .team-head h2 em { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; }
+  .team-head p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); max-width: 56ch; }
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(30px, 4vw, 50px); }
+  .team-card { display: flex; flex-direction: column; }
+  .team-photo {
+    position: relative; aspect-ratio: 4/5; overflow: hidden;
+    background: repeating-linear-gradient(135deg, rgba(26,26,23,0.035), rgba(26,26,23,0.035) 2px, transparent 2px, transparent 14px), var(--bg-deep);
+    border: 1px dashed var(--rule-strong);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px;
+  }
+  .team-photo img, .team-photo video { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .team-photo-placeholder { text-align: center; color: var(--ink-soft); opacity: 0.55; padding: 20px; }
+  .team-photo-placeholder svg { width: 30px; height: 30px; margin: 0 auto 12px; display: block; }
+  .team-photo-placeholder span { display: block; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
+  .team-card h3 {
+    font-family: 'Bodoni Moda', serif; font-weight: 500; font-size: 21px; letter-spacing: -0.005em;
+    color: var(--ink-soft); font-style: italic;
+  }
+  .team-card .role { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); opacity: 0.65; margin-top: 6px; }
+  .team-card p.bio { font-size: 14px; line-height: 1.7; color: var(--ink-soft); opacity: 0.85; margin-top: 14px; max-width: 32ch; }
+  @media (max-width: 900px) {
+    .team-grid { grid-template-columns: 1fr 1fr; gap: 28px 24px; }
+  }
+  @media (max-width: 560px) {
+    .team-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="site-nav" aria-label="Primary">
+    <a href="/" class="wordmark"><span>Eye <em>Atelier</em></span><small>Old Bridge · NJ</small></a>
+    <div class="nav-right">
+      <a href="https://www.instagram.com/eyeateliereyewear" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on Instagram" style="font-size:11px; letter-spacing:0.22em; text-transform:uppercase; opacity:0.75;">Instagram</a>
+      <a href="tel:+17326968933" class="nav-phone">(732) 696·8933</a>
+      <a href="/#visit" class="nav-cta">Book a Fitting</a>
+    </div>
+  </nav>
+</header>
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a><span class="sep">·</span>Our Story
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <p class="eyebrow">The Atelier</p>
+  <h1>Not a shop. <em>An atelier.</em></h1>
+  <p class="lede">A small, deliberate boutique for designer eyewear in Old Bridge, New Jersey — built around curation, craft, and a fitting that takes as long as it needs to.</p>
+</section>
+
+<!-- OUR STORY -->
+<section class="about-section" id="story">
+  <div class="about-eyebrow-row">
+    <p class="eyebrow">Our Story</p>
+    <p class="count">Nº 01</p>
+  </div>
+  <div class="story-grid">
+    <div class="story-media">
+      <img src="showroom.jpg" alt="Eye Atelier showroom — white-oak displays and considered lighting in Old Bridge, NJ" loading="lazy">
+    </div>
+    <div class="story-copy">
+      <h2>Opened as an <em>alternative</em> to the mall.</h2>
+      <p>Eye Atelier began with a simple conviction: the frame you wear is the most visible thing on your face, and it deserves the same thoughtfulness as the suit, the shoe, or the watch. Not another case of frames sorted by insurance tier — a boutique, built the way a boutique ought to be built.</p>
+      <p>Our floor is quiet. The displays are edited. The people here know the collections by heart, not from a script. If you have ever left an optical shop wondering whether you actually saw the frame or just the price tag, Eye Atelier is calibrated for the opposite experience.</p>
+      <p>We are still a small operation, on purpose. That's what lets us slow down.</p>
+      <div class="story-quote">
+        The best eyewear relationship in your life should feel like a favorite tailor. That is the standard we hold ourselves to.
+        <span>Eye Atelier</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR PHILOSOPHY -->
+<section class="about-section" id="philosophy">
+  <div class="philosophy-head">
+    <p class="eyebrow">Our Philosophy</p>
+    <h2>Three ideas we don't <em>compromise</em> on.</h2>
+    <p>Everything else on the floor is in service of these.</p>
+  </div>
+  <div class="philosophy-grid">
+    <div class="philosophy-item">
+      <div class="n">Nº <em>01</em></div>
+      <h3>Curated, not stocked</h3>
+      <p>We do not carry what rotates off an assembly line. Every piece on the shelf earned its place — pulled from collections we trust, and edited hard.</p>
+    </div>
+    <div class="philosophy-item">
+      <div class="n">Nº <em>02</em></div>
+      <h3>Fitted by hand</h3>
+      <p>Temple length, nose-pad angle, bridge fit, pantoscopic tilt — adjusted in-house, in person, until it's right. Adjustments and care stay part of the relationship, not a billable upsell.</p>
+    </div>
+    <div class="philosophy-item">
+      <div class="n">Nº <em>03</em></div>
+      <h3>All ages, welcomed</h3>
+      <p>From a first pair at five to a thirtieth pair at fifty. Every client gets the same unhurried attention, whatever the age or the budget.</p>
+    </div>
+  </div>
+</section>
+
+<!-- MEET OUR TEAM
+     EDIT HERE — each .team-card is a placeholder until real photos/video and
+     bios are supplied. Swap the .team-photo-placeholder block for an <img>
+     or <video> (autoplay muted loop playsinline, same pattern as the home
+     page promo video), and replace the name/role/bio text.
+======================================================================== -->
+<section class="about-section" id="team">
+  <div class="team-head">
+    <p class="eyebrow">Meet Our Team</p>
+    <h2>The people behind the <em>counter</em>.</h2>
+    <p>A small team, chosen for patience and an eye for fit — not a sales quota. Full introductions (and video) coming soon.</p>
+  </div>
+  <div class="team-grid">
+
+    <div class="team-card">
+      <div class="team-photo">
+        <div class="team-photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
+          <span>Photo / Video<br>Coming Soon</span>
+        </div>
+      </div>
+      <h3>Team Member Name</h3>
+      <p class="role">Founder &amp; Optician</p>
+      <p class="bio">A short introduction goes here — background, specialty, and what they love about fitting frames.</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo">
+        <div class="team-photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
+          <span>Photo / Video<br>Coming Soon</span>
+        </div>
+      </div>
+      <h3>Team Member Name</h3>
+      <p class="role">Style Consultant</p>
+      <p class="bio">A short introduction goes here — background, specialty, and what they love about fitting frames.</p>
+    </div>
+
+    <div class="team-card">
+      <div class="team-photo">
+        <div class="team-photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
+          <span>Photo / Video<br>Coming Soon</span>
+        </div>
+      </div>
+      <h3>Team Member Name</h3>
+      <p class="role">Client Care</p>
+      <p class="bio">A short introduction goes here — background, specialty, and what they love about fitting frames.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-band" aria-labelledby="cta-heading">
+  <div class="cta-inner">
+    <div>
+      <h2 id="cta-heading">Come <em>visit</em>.</h2>
+      <p>The best way to understand the difference is to see the floor for yourself.</p>
+    </div>
+    <div class="cta-actions">
+      <a class="cta-btn primary" href="tel:+17326968933">Call (732) 696·8933</a>
+      <a class="cta-btn" href="https://share.google/XbxeWpjPBPiB6ob5s" target="_blank" rel="noopener">Directions</a>
+      <a class="cta-btn" href="/#visit">Book a Fitting</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="foot-inner">
+    <div><div class="foot-mark">Eye <em>Atelier</em><small>Est. Old Bridge · NJ</small></div></div>
+    <div class="foot-col">
+      <h5>Visit</h5>
+      <a href="https://share.google/XbxeWpjPBPiB6ob5s" target="_blank" rel="noopener">The Shoppes at Old Bridge</a>
+      <a href="https://share.google/XbxeWpjPBPiB6ob5s" target="_blank" rel="noopener">3849 US-9, 08857</a>
+      <a href="tel:+17326968933">(732) 696·8933</a>
+    </div>
+    <div class="foot-col">
+      <h5>Explore</h5>
+      <a href="/cartier-eyeglasses-old-bridge-nj">Cartier Eyeglasses</a>
+      <a href="/cartier-sunglasses-old-bridge-nj">Cartier Sunglasses</a>
+      <a href="/designer-eyeglasses-old-bridge-nj">Designer Eyeglasses</a>
+      <a href="/designer-sunglasses-old-bridge-nj">Designer Sunglasses</a>
+    </div>
+    <div class="foot-col">
+      <h5>Services</h5>
+      <a href="/eye-exams-old-bridge-nj">Eye Exams</a>
+      <a href="/eyeglass-repairs-adjustments-old-bridge-nj">Repairs &amp; Adjustments</a>
+      <a href="/kids-glasses-old-bridge-nj">Les Petits · Kids</a>
+      <a href="https://www.instagram.com/eyeateliereyewear" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© MMXXVI · Eye Atelier</span>
+    <span>Old Bridge · New Jersey</span>
+  </div>
+</footer>
+
+<div class="mobile-sticky" aria-hidden="true">
+  <a href="tel:+17326968933" class="ms-call">Call</a>
+  <a href="/#visit" class="ms-book">Book a Fitting</a>
+</div>
+
+</body>
+</html>
