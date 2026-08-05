@@ -122,38 +122,42 @@
   }
 
   /* MEET OUR TEAM */
-  .team-head { max-width: 60ch; margin-bottom: clamp(50px, 7vw, 90px); }
+  .team-head { max-width: 62ch; margin-bottom: clamp(60px, 8vw, 100px); }
   .team-head h2 {
     font-family: 'Bodoni Moda', serif; font-weight: 400;
     font-size: clamp(34px, 4.4vw, 56px); line-height: 1.06; letter-spacing: -0.015em;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
   .team-head h2 em { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; }
-  .team-head p { font-size: 17px; line-height: 1.7; color: var(--ink-soft); max-width: 56ch; }
-  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(30px, 4vw, 50px); }
+  .team-head p {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
+    font-size: clamp(18px, 2vw, 22px); line-height: 1.55; color: var(--ink-soft); max-width: 56ch;
+  }
+  .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(50px, 6vw, 90px); }
   .team-card { display: flex; flex-direction: column; }
   .team-photo {
     position: relative; aspect-ratio: 4/5; overflow: hidden;
-    background: repeating-linear-gradient(135deg, rgba(26,26,23,0.035), rgba(26,26,23,0.035) 2px, transparent 2px, transparent 14px), var(--bg-deep);
-    border: 1px dashed var(--rule-strong);
+    background: repeating-linear-gradient(135deg, rgba(26,26,23,0.03), rgba(26,26,23,0.03) 2px, transparent 2px, transparent 16px), var(--bg-deep);
+    border: 1px solid var(--rule-strong);
     display: flex; align-items: center; justify-content: center;
-    margin-bottom: 22px;
   }
   .team-photo img, .team-photo video { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .team-photo-placeholder { text-align: center; color: var(--ink-soft); opacity: 0.55; padding: 20px; }
-  .team-photo-placeholder svg { width: 30px; height: 30px; margin: 0 auto 12px; display: block; }
-  .team-photo-placeholder span { display: block; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; }
-  .team-card h3 {
-    font-family: 'Bodoni Moda', serif; font-weight: 500; font-size: 21px; letter-spacing: -0.005em;
-    color: var(--ink-soft); font-style: italic;
+  .team-photo-placeholder { text-align: center; color: var(--ink-soft); padding: 20px; }
+  .team-photo-placeholder svg { width: 40px; height: 40px; margin: 0 auto 20px; display: block; opacity: 0.5; }
+  .team-photo-placeholder .tpp-label {
+    display: block; font-family: 'Bodoni Moda', serif; font-style: italic; font-weight: 400;
+    font-size: 17px; color: var(--ink-soft); opacity: 0.75; margin-bottom: 14px;
   }
-  .team-card .role { font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft); opacity: 0.65; margin-top: 6px; }
-  .team-card p.bio { font-size: 14px; line-height: 1.7; color: var(--ink-soft); opacity: 0.85; margin-top: 14px; max-width: 32ch; }
-  @media (max-width: 900px) {
-    .team-grid { grid-template-columns: 1fr 1fr; gap: 28px 24px; }
+  .team-photo-placeholder .tpp-video {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-soft); opacity: 0.6;
+    border: 1px solid var(--rule-strong); border-radius: 999px;
+    padding: 7px 14px;
   }
-  @media (max-width: 560px) {
-    .team-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; }
+  .team-photo-placeholder .tpp-video::before { content: '▸'; color: var(--accent); opacity: 0.9; }
+  @media (max-width: 780px) {
+    .team-grid { grid-template-columns: 1fr; gap: 44px; max-width: 420px; margin: 0 auto; }
   }
 </style>
 </head>
@@ -231,16 +235,18 @@
 </section>
 
 <!-- MEET OUR TEAM
-     EDIT HERE — each .team-card is a placeholder until real photos/video and
-     bios are supplied. Swap the .team-photo-placeholder block for an <img>
-     or <video> (autoplay muted loop playsinline, same pattern as the home
-     page promo video), and replace the name/role/bio text.
+     EDIT HERE — each .team-card is a placeholder until real headshots and
+     introduction videos are supplied. Swap the .team-photo-placeholder block
+     for an <img> or <video> (autoplay muted loop playsinline, same pattern
+     as the home page promo video). Names and bios intentionally not added
+     yet — add a name/role/bio block beneath .team-photo once real people
+     are ready to be introduced.
 ======================================================================== -->
 <section class="about-section" id="team">
   <div class="team-head">
     <p class="eyebrow">Meet Our Team</p>
     <h2>The people behind the <em>counter</em>.</h2>
-    <p>A small team, chosen for patience and an eye for fit — not a sales quota. Full introductions (and video) coming soon.</p>
+    <p>The people behind Eye Atelier are dedicated to exceptional vision, personalized service, and helping every guest find eyewear they truly love.</p>
   </div>
   <div class="team-grid">
 
@@ -248,36 +254,30 @@
       <div class="team-photo">
         <div class="team-photo-placeholder">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
-          <span>Photo / Video<br>Coming Soon</span>
+          <span class="tpp-label">Headshot Coming Soon</span>
+          <span class="tpp-video">Introduction Video</span>
         </div>
       </div>
-      <h3>Team Member Name</h3>
-      <p class="role">Founder &amp; Optician</p>
-      <p class="bio">A short introduction goes here — background, specialty, and what they love about fitting frames.</p>
     </div>
 
     <div class="team-card">
       <div class="team-photo">
         <div class="team-photo-placeholder">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
-          <span>Photo / Video<br>Coming Soon</span>
+          <span class="tpp-label">Headshot Coming Soon</span>
+          <span class="tpp-video">Introduction Video</span>
         </div>
       </div>
-      <h3>Team Member Name</h3>
-      <p class="role">Style Consultant</p>
-      <p class="bio">A short introduction goes here — background, specialty, and what they love about fitting frames.</p>
     </div>
 
     <div class="team-card">
       <div class="team-photo">
         <div class="team-photo-placeholder">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"></path></svg>
-          <span>Photo / Video<br>Coming Soon</span>
+          <span class="tpp-label">Headshot Coming Soon</span>
+          <span class="tpp-video">Introduction Video</span>
         </div>
       </div>
-      <h3>Team Member Name</h3>
-      <p class="role">Client Care</p>
-      <p class="bio">A short introduction goes here — background, specialty, and what they love about fitting frames.</p>
     </div>
 
   </div>
