@@ -282,7 +282,9 @@
   .about-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); margin-top: 36px; border-radius: 6px; overflow: hidden; }
   .about-stat { background: var(--card); padding: 22px 18px; }
   .about-stat b { display: block; font-family: 'Bodoni Moda', serif; font-size: clamp(22px,2.6vw,30px); color: var(--partner-accent); margin-bottom: 6px; }
-  .about-stat span { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+  .about-stat span { display: block; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); }
+  .about-stat span + span { margin-top: 4px; }
+  .about-stat .welcome { font-family: 'Bodoni Moda', serif; font-style: italic; text-transform: none; letter-spacing: 0.02em; font-size: 12px; color: var(--partner-accent); margin-top: 8px; }
 
   /* OFFERS */
   .offers { background: var(--bg-deep); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
@@ -496,9 +498,9 @@
       <p class="reveal reveal-2">Whether it's your first pair of eyeglasses or you're looking for a safety sport pair for playing hockey, we're the place that can make both happen. We specialize in prescription sunglasses and all the latest lens technologies. We can fill your prescription, or you can be seen by our doctor — we can even copy the prescription in your current glasses and duplicate it perfectly.</p>
       <p class="reveal reveal-3">We look forward to seeing you.</p>
       <div class="about-stats reveal reveal-4">
-        <div class="about-stat"><b>Youth Hockey</b><span>NJ Titans · NAHL</span></div>
-        <div class="about-stat"><b>Old Bridge</b><span>Eye Atelier Boutique</span></div>
-        <div class="about-stat"><b>1:1</b><span>Fittings, Never Rushed</span></div>
+        <div class="about-stat"><b>Youth Hockey</b><span>NJ Titans · NAHL</span><span class="welcome">All Welcome</span></div>
+        <div class="about-stat"><b>Old Bridge</b><span>Eye Atelier Boutique</span><span>Middletown Sports Complex</span><span class="welcome">All Welcome</span></div>
+        <div class="about-stat"><b>1:1</b><span>Fittings, Never Rushed</span><span>Sparks Day Camp</span><span class="welcome">All Welcome</span></div>
       </div>
     </div>
   </div>
