@@ -39,7 +39,7 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Do I need an appointment?", "acceptedAnswer": { "@type": "Answer", "text": "Walk-ins are always welcome, but we recommend calling (732) 696-8933 ahead of time so we can have the right pieces and the right amount of time set aside for your fitting." } },
+    { "@type": "Question", "name": "Do I need an appointment?", "acceptedAnswer": { "@type": "Answer", "text": "Walk-ins are always welcome to browse our collections, receive expert styling, and purchase eyewear. Comprehensive eye exams are available by appointment — call (732) 696-8933 or email LW@EyeAtelier.com to schedule." } },
     { "@type": "Question", "name": "Can family members use these offers?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. These offers are open to Titans players, coaches, staff, and their immediate families — just mention you're with the Titans community when you book or arrive." } },
     { "@type": "Question", "name": "Where are you located?", "acceptedAnswer": { "@type": "Answer", "text": "Eye Atelier is at The Shoppes at Old Bridge, 3849 US-9, Old Bridge, NJ 08857 — a short drive from Middletown Ice World." } },
     { "@type": "Question", "name": "What brands do you carry?", "acceptedAnswer": { "@type": "Answer", "text": "Our curation includes Cartier, Dita, Lindberg, Matsuda, Akoni, Mykita, Oliver Peoples, Gucci, Saint Laurent, Maui Jim, Ray-Ban, Chanel, and other luxury houses, in both optical and sun." } }
@@ -408,6 +408,9 @@
   .hours-grid { display: grid; grid-template-columns: auto 1fr; gap: 6px 20px; font-size: 15px; }
   .hours-grid .day { color: var(--ink-faint); }
   .visit-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+  .visit-note { margin-top: 22px; font-size: 12.5px; line-height: 1.85; color: var(--ink-faint); max-width: 56ch; }
+  .visit-note a { color: var(--ink-soft); border-bottom: 1px solid var(--rule-strong); }
+  .visit-note a:hover { color: var(--ink); border-color: var(--ink); }
   .map-frame { border-radius: 10px; overflow: hidden; border: 1px solid var(--rule); min-height: 340px; background: var(--card); }
   .map-frame iframe { width: 100%; height: 100%; min-height: 340px; border: 0; filter: grayscale(0.2) contrast(1.02); }
 
@@ -484,7 +487,7 @@
     <p class="hero-sub reveal reveal-2">Exclusive in-store offers, premium eyewear, and expert service for the New Jersey Titans community — players, coaches, staff, and families.</p>
     <div class="hero-actions reveal reveal-3">
       <a href="#offers" class="btn btn-primary">View Exclusive Offers</a>
-      <a href="#visit" class="btn btn-ghost">Book an Appointment</a>
+      <a href="#visit" class="btn btn-ghost">Schedule an Eye Exam</a>
     </div>
   </div>
   <div class="scroll-cue" aria-hidden="true"><span></span>Scroll</div>
@@ -630,7 +633,7 @@
 <section class="block visit" id="visit">
   <div class="block-inner">
     <p class="kicker reveal">Visit Eye Atelier</p>
-    <h2 class="block-title reveal reveal-1">Plan your <em>fitting</em>.</h2>
+    <h2 class="block-title reveal reveal-1">Plan your <em>visit</em>.</h2>
     <div class="visit-grid">
       <div class="visit-rows reveal reveal-1">
         <div class="visit-row">
@@ -653,9 +656,10 @@
           </div>
         </div>
         <div class="visit-actions">
-          <a class="btn btn-primary" href="tel:+17326968933">Book an Appointment</a>
+          <a class="btn btn-primary" href="tel:+17326968933">Schedule an Eye Exam</a>
           <a class="btn btn-ghost" href="https://share.google/XbxeWpjPBPiB6ob5s" target="_blank" rel="noopener">Get Directions</a>
         </div>
+        <p class="visit-note">Walk-ins are always welcome to browse our collections, receive expert styling, and purchase eyewear. Comprehensive eye exams are available by appointment — call (732) 696&middot;8933 or email <a href="mailto:LW@EyeAtelier.com">LW@EyeAtelier.com</a> to schedule.</p>
       </div>
       <div class="map-frame reveal reveal-2">
         <iframe src="https://www.google.com/maps?q=The+Shoppes+at+Old+Bridge,+3849+US-9,+Old+Bridge,+NJ+08857&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Map to Eye Atelier at The Shoppes at Old Bridge"></iframe>
@@ -672,7 +676,7 @@
     <div class="faq-list">
       <div class="faq-item reveal reveal-1">
         <h3>Do I need an appointment?</h3>
-        <p>Walk-ins are always welcome, but we recommend calling (732) 696·8933 ahead of time so we can have the right pieces — and the right amount of time — set aside for your fitting.</p>
+        <p>Walk-ins are always welcome to browse our collections, receive expert styling, and purchase eyewear. Comprehensive eye exams are available by appointment — call (732) 696·8933 or email <a href="mailto:LW@EyeAtelier.com">LW@EyeAtelier.com</a> to schedule.</p>
       </div>
       <div class="faq-item reveal reveal-1">
         <h3>Can family members use these offers?</h3>
