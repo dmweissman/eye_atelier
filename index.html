@@ -239,6 +239,10 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   .nav-links { display:flex; gap:30px; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; }
   .nav-links a { opacity:.75; transition:opacity .2s; padding: 6px 0; }
   .nav-links a:hover { opacity:1; }
+  .social-icons { display: inline-flex; align-items: center; gap: 14px; }
+  .social-icons a { display: inline-flex; opacity: .75; transition: opacity .2s; }
+  .social-icons a:hover { opacity: 1; }
+  .social-icons svg { width: 16px; height: 16px; display: block; }
   .nav-right { justify-self:end; display:flex; gap:18px; align-items:center; font-size:11px; letter-spacing:0.22em; text-transform:uppercase; }
   .nav-cta { padding:10px 18px; border:1px solid var(--ink); border-radius:999px; transition:all .2s; }
   .nav-cta:hover { background:var(--ink); color:var(--bg); }
@@ -262,6 +266,8 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   .mobile-menu .mm-contact { display: flex; flex-direction: column; gap: 12px; padding-top: 24px; border-top: 1px solid var(--rule); }
   .mobile-menu .mm-contact a { font-family: 'Bodoni Moda', serif; font-style: italic; font-size: 22px; }
   .mobile-menu .mm-contact small { font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); font-style: normal; display: block; margin-bottom: 2px; }
+  .mobile-menu .mm-contact .social-icons { margin-top: 4px; }
+  .mobile-menu .mm-contact .social-icons svg { width: 22px; height: 22px; }
   body.menu-open { overflow: hidden; }
   .wordmark { font-family:'Bodoni Moda',serif; font-weight:400; font-size:22px; letter-spacing:0.01em; text-align:center; line-height:1; }
   .wordmark em { font-family:'Fraunces',serif; font-style:italic; font-weight:300; }
@@ -524,6 +530,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   .info-row .label { font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color: rgba(236,231,222,0.6); }
   .info-row .val { font-family:'Bodoni Moda',serif; font-weight:400; font-size:22px; letter-spacing:-0.005em; }
   .info-row .val small { display:block; font-family:'Jost',sans-serif; font-size:13px; letter-spacing:0; text-transform:none; color: rgba(236,231,222,0.7); margin-top:6px; line-height:1.6; }
+  .info-row .social-icons svg { width: 20px; height: 20px; }
   .hours-grid { display:grid; grid-template-columns: auto 1fr; gap: 6px 24px; font-family:'Jost',sans-serif; font-size:14px; }
   .hours-grid .day { color: rgba(236,231,222,0.65); }
   .visit-cta { display:inline-flex; align-items:center; gap:10px; padding:15px 26px; border:1px solid var(--bg); border-radius:999px; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; transition:all .2s; align-self:flex-start; margin-top:22px; }
@@ -538,6 +545,9 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   .foot-col h5 { font-family:'Jost',sans-serif; font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:var(--muted); margin:0 0 14px; font-weight:400; }
   .foot-col a { display:block; font-size:14px; padding:4px 0; }
   .foot-col a:hover { color: var(--accent); }
+  .foot-col .social-icons { padding: 4px 0; }
+  .foot-col .social-icons a { display: inline-flex; padding: 0; opacity: 0.8; }
+  .foot-col .social-icons a:hover { opacity: 1; color: var(--accent); }
   .foot-bottom { max-width: var(--maxw); margin: 50px auto 0; padding-top:22px; border-top:1px solid rgba(26,26,23,0.12); display:flex; justify-content:space-between; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); }
 
   /* TWEAKS */
@@ -667,7 +677,10 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
       <a href="/about">About Us</a>
       <a href="#kids">Kids</a>
       <a href="#visit">Visit Us</a>
-      <a href="https://www.instagram.com/eyeateliereyewear" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on Instagram">Instagram</a>
+      <span class="social-icons">
+        <a href="https://www.instagram.com/eyeateliereyewear" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.tiktok.com/@eye.atelier.eyewe" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg></a>
+      </span>
     </div>
     <a href="#top" class="wordmark" style="padding: 6px 14px; background: rgba(26,26,23,0.045); border-radius: 3px;">
       Eye <em>Atelier</em>
@@ -691,7 +704,13 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   <div class="mm-contact">
     <a href="tel:+17326968933"><small>Telephone</small>(732) 696&middot;8933</a>
     <a href="https://share.google/XbxeWpjPBPiB6ob5s" target="_blank" rel="noopener"><small>Address</small>Shoppes of Old Bridge, NJ</a>
-    <a href="https://www.instagram.com/eyeateliereyewear" target="_blank" rel="noopener noreferrer"><small>Follow</small>@eyeateliereyewear</a>
+    <div>
+      <small>Follow</small>
+      <span class="social-icons">
+        <a href="https://www.instagram.com/eyeateliereyewear" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.tiktok.com/@eye.atelier.eyewe" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg></a>
+      </span>
+    </div>
   </div>
 </div>
 
@@ -1042,7 +1061,12 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
         </div>
         <div class="info-row">
           <div class="label">Follow</div>
-          <div class="val"><a href="https://www.instagram.com/eyeateliereyewear" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:none; border-bottom:1px solid rgba(236,231,222,0.25); padding-bottom:2px;">@eyeateliereyewear<br><small style="border:0;">Instagram &nbsp;↗</small></a></div>
+          <div class="val">
+            <span class="social-icons">
+              <a href="https://www.instagram.com/eyeateliereyewear" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+              <a href="https://www.tiktok.com/@eye.atelier.eyewe" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg></a>
+            </span>
+          </div>
         </div>
         <a class="visit-cta" href="https://maps.app.goo.gl/8p4qs5rmUXTJdb9JA?g_st=ic" target="_blank" rel="noopener">Book a Fitting →</a>
       </div>
@@ -1076,7 +1100,10 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
       <a href="/eye-exams-old-bridge-nj">Eye Exams</a>
       <a href="/eyeglass-repairs-adjustments-old-bridge-nj">Repairs &amp; Adjustments</a>
       <a href="/kids-glasses-old-bridge-nj">Les Petits · Kids</a>
-      <a href="https://www.instagram.com/eyeateliereyewear" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <span class="social-icons">
+        <a href="https://www.instagram.com/eyeateliereyewear" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.tiktok.com/@eye.atelier.eyewe" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg></a>
+      </span>
     </div>
   </div>
   <div class="foot-bottom">
