@@ -519,11 +519,8 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   .visit-wrap .section-head { border-color: rgba(236,231,222,0.2); }
   .visit-wrap .section-head .num, .visit-wrap .section-head .tag { color: rgba(236,231,222,0.6); }
   .visit-grid { display:grid; grid-template-columns: 1.1fr 1fr; gap: clamp(24px,4vw,60px); align-items:stretch; }
-  .visit-map { aspect-ratio: 4/5; background: var(--forest); position:relative; overflow:hidden; border: 1px solid rgba(236,231,222,0.2); }
-  .map-svg { position:absolute; inset:0; width:100%; height:100%; }
-  .map-pin { position:absolute; left:50%; top:50%; transform:translate(-50%,-100%); display:flex; flex-direction:column; align-items:center; gap:8px; }
-  .map-pin .dot { width:14px; height:14px; border-radius:50%; background:var(--accent); box-shadow: 0 0 0 6px rgba(138,58,42,0.2), 0 0 0 12px rgba(138,58,42,0.1); }
-  .map-pin .lbl { font-family:'Bodoni Moda',serif; font-style:italic; font-size:16px; color: var(--bg); background: rgba(26,26,23,0.8); padding: 4px 10px; }
+  .visit-map { aspect-ratio: 4/5; position:relative; overflow:hidden; border: 1px solid rgba(236,231,222,0.2); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.45); }
+  .visit-map img { width:100%; height:100%; object-fit:cover; filter: contrast(1.02); }
   .visit-info { display:flex; flex-direction:column; gap: 0; padding: 8px 0; }
   .info-row { padding: 22px 0; border-top: 1px solid rgba(236,231,222,0.18); display:grid; grid-template-columns: 150px 1fr; gap:20px; align-items:baseline; }
   .info-row:last-of-type { border-bottom: 1px solid rgba(236,231,222,0.18); }
@@ -991,52 +988,14 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
       <div class="tag">Old Bridge · NJ</div>
     </div>
     <div class="visit-grid">
-      <div class="visit-map" aria-hidden="true">
-        <svg class="map-svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
-              <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(196,184,154,0.08)" stroke-width="1"/>
-            </pattern>
-          </defs>
-          <rect width="400" height="500" fill="#1f2a24"/>
-          <rect width="400" height="500" fill="url(#grid)"/>
-          <!-- faux roads -->
-          <path d="M -20 180 Q 120 200 260 160 T 420 140" stroke="rgba(196,184,154,0.35)" stroke-width="2" fill="none"/>
-          <path d="M -20 330 Q 140 310 280 340 T 420 360" stroke="rgba(196,184,154,0.25)" stroke-width="1.5" fill="none"/>
-          <path d="M 80 -20 Q 100 180 180 260 T 260 520" stroke="rgba(196,184,154,0.25)" stroke-width="1.5" fill="none"/>
-          <path d="M 220 -20 Q 240 140 200 250 T 180 520" stroke="rgba(196,184,154,0.18)" stroke-width="1" fill="none"/>
-          <!-- blocks -->
-          <rect x="40" y="220" width="80" height="60" fill="rgba(196,184,154,0.05)" stroke="rgba(196,184,154,0.2)"/>
-          <rect x="240" y="200" width="90" height="70" fill="rgba(196,184,154,0.05)" stroke="rgba(196,184,154,0.2)"/>
-          <rect x="60" y="350" width="100" height="80" fill="rgba(196,184,154,0.05)" stroke="rgba(196,184,154,0.2)"/>
-          <rect x="250" y="370" width="80" height="50" fill="rgba(196,184,154,0.05)" stroke="rgba(196,184,154,0.2)"/>
-          <!-- compass -->
-          <g transform="translate(340,60)" stroke="rgba(196,184,154,0.5)" fill="none">
-            <circle r="20"/>
-            <path d="M 0 -16 L 4 0 L 0 16 L -4 0 Z" fill="rgba(196,184,154,0.8)" stroke="none"/>
-            <text x="0" y="-24" font-family="Bodoni Moda, serif" font-size="10" fill="rgba(196,184,154,0.8)" text-anchor="middle">N</text>
-          </g>
-          <!-- scale -->
-          <g transform="translate(30,460)" stroke="rgba(196,184,154,0.5)">
-            <line x1="0" y1="0" x2="60" y2="0" stroke-width="1.5"/>
-            <line x1="0" y1="-3" x2="0" y2="3"/>
-            <line x1="60" y1="-3" x2="60" y2="3"/>
-            <text x="0" y="16" font-family="Jost, sans-serif" font-size="9" fill="rgba(196,184,154,0.6)">0</text>
-            <text x="60" y="16" font-family="Jost, sans-serif" font-size="9" fill="rgba(196,184,154,0.6)" text-anchor="end">500 ft</text>
-          </g>
-          <!-- route 9 -->
-          <text x="360" y="145" font-family="Bodoni Moda, serif" font-style="italic" font-size="11" fill="rgba(196,184,154,0.7)" text-anchor="end">Route 9 →</text>
-        </svg>
-        <div class="map-pin">
-          <span class="lbl it">Eye Atelier</span>
-          <span class="dot"></span>
-        </div>
+      <div class="visit-map">
+        <img src="storefront-exterior.jpg" alt="The Eye Atelier storefront at The Shoppes at Old Bridge, 3849 US-9, Old Bridge, NJ">
       </div>
 
       <div class="visit-info">
         <div class="info-row">
           <div class="label">Address</div>
-          <div class="val"><a href="https://share.google/XbxeWpjPBPiB6ob5s" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; border-bottom:1px solid rgba(236,231,222,0.25); padding-bottom:2px;">The Shoppes at Old Bridge<br><small style="border:0;">3849 US-9, Old Bridge, NJ 08857 &nbsp;↗ Open in Maps</small></a></div>
+          <div class="val"><a href="https://share.google/XbxeWpjPBPiB6ob5s" target="_blank" rel="noopener" style="color:inherit; text-decoration:none; border-bottom:1px solid rgba(236,231,222,0.25); padding-bottom:2px;">Eye Atelier<br><small style="border:0;">3849 US-9, Old Bridge, NJ 08857 &nbsp;↗ Open in Maps</small></a></div>
         </div>
         <div class="info-row">
           <div class="label">Telephone</div>
