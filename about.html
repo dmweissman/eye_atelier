@@ -267,22 +267,38 @@
   .closing-sub {
     font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
     font-size: clamp(17px, 1.9vw, 21px); line-height: 1.55;
-    color: var(--ink-soft); margin-bottom: 40px;
-  }
-  .closing-cta {
-    display: inline-flex; align-items: center;
-    padding: 16px 34px; border: 1px solid var(--ink); border-radius: 999px;
-    font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase;
-    transition: all 0.2s;
-  }
-  .closing-cta:hover { background: var(--ink); color: var(--bg); }
-  .closing-note {
-    margin-top: 28px;
-    font-family: 'Jost', sans-serif; font-size: 13px; line-height: 1.85;
     color: var(--ink-soft);
   }
-  .closing-note a { color: inherit; border-bottom: 1px solid var(--rule-strong); }
-  .closing-note a:hover { color: var(--ink); }
+
+  /* PAY A VISIT (matches homepage Visit section exactly) */
+  .visit-wrap { background: var(--ink); color: var(--bg); padding: clamp(64px, 9vw, 120px) var(--pad); }
+  .visit-outer { max-width: var(--maxw); margin: 0 auto; }
+  .visit-wrap .closing-inner { margin-bottom: clamp(40px, 6vw, 64px); }
+  .visit-wrap .closing-sub { color: rgba(236,231,222,0.78); }
+  .visit-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: clamp(24px, 4vw, 60px); align-items: stretch; }
+  .visit-map { aspect-ratio: 4/3; position: relative; overflow: hidden; border: 1px solid rgba(236,231,222,0.2); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.45); align-self: center; }
+  .visit-map img { width: 100%; height: 100%; object-fit: cover; filter: contrast(1.02); }
+  .visit-map-url { position: absolute; top: 33%; right: 15%; font-family: 'Jost', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,0.5); white-space: nowrap; }
+  .visit-info { display: flex; flex-direction: column; gap: 0; text-align: left; }
+  .info-row { padding: 20px 0; border-top: 1px solid rgba(236,231,222,0.18); display: grid; grid-template-columns: 140px 1fr; gap: 16px; align-items: baseline; }
+  .info-row:first-child { border-top: none; padding-top: 0; }
+  .info-row:last-of-type { border-bottom: 1px solid rgba(236,231,222,0.18); }
+  .info-row .label { font-size: 10px; letter-spacing: 0.26em; text-transform: uppercase; color: rgba(236,231,222,0.6); }
+  .info-row .val { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 19px; letter-spacing: -0.005em; }
+  .info-row .val a { color: inherit; text-decoration: none; }
+  .info-row .val small { display: block; font-family: 'Jost', sans-serif; font-size: 12.5px; letter-spacing: 0; text-transform: none; color: rgba(236,231,222,0.7); margin-top: 6px; line-height: 1.6; }
+  .info-row .social-icons svg { width: 18px; height: 18px; }
+  .hours-grid { display: grid; grid-template-columns: auto 1fr; gap: 6px 22px; font-family: 'Jost', sans-serif; font-size: 13px; }
+  .hours-grid .day { color: rgba(236,231,222,0.65); }
+  .visit-cta { display: inline-flex; align-items: center; gap: 10px; padding: 15px 26px; border: 1px solid var(--bg); border-radius: 999px; font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase; transition: all 0.2s; margin-top: 22px; align-self: flex-start; }
+  .visit-cta:hover { background: var(--bg); color: var(--ink); }
+  .visit-note { margin-top: 18px; font-family: 'Jost', sans-serif; font-size: 13px; line-height: 1.85; letter-spacing: 0.01em; color: rgba(236,231,222,0.72); }
+  .visit-note a { color: inherit; border-bottom: 1px solid rgba(236,231,222,0.35); }
+  .visit-note a:hover { color: var(--bg); }
+  @media (max-width: 720px) {
+    .visit-grid { grid-template-columns: 1fr; }
+    .visit-map { aspect-ratio: 5/4; }
+  }
 </style>
 </head>
 <body>
@@ -454,12 +470,54 @@
   </div>
 </section>
 
-<section class="about-section closing-section" aria-labelledby="closing-heading">
-  <div class="closing-inner">
-    <p class="closing-line" id="closing-heading">We look forward to welcoming you to Eye Atelier.</p>
-    <p class="closing-sub">Experience exceptional eyewear, personalized service, and a boutique unlike any other.</p>
-    <a class="closing-cta" href="/#visit">Schedule an Eye Exam</a>
-    <p class="closing-note">Walk-ins are always welcome to browse our collections, receive expert styling, and purchase eyewear. Comprehensive eye exams are available by appointment — call <a href="tel:+17326968933">(732) 696&middot;8933</a> or email <a href="mailto:LW@EyeAtelier.com">LW@EyeAtelier.com</a> to schedule.</p>
+<section class="visit-wrap closing-section" aria-labelledby="closing-heading">
+  <div class="visit-outer">
+    <div class="closing-inner">
+      <p class="closing-line" id="closing-heading">We look forward to welcoming you to Eye Atelier.</p>
+      <p class="closing-sub">Experience exceptional eyewear, personalized service, and a boutique unlike any other.</p>
+    </div>
+    <div class="visit-grid">
+      <div class="visit-map">
+        <img src="storefront-exterior.jpg" alt="The Eye Atelier storefront, 3849 US-9, Old Bridge, NJ">
+        <span class="visit-map-url">eyeatelier.com</span>
+      </div>
+      <div class="visit-info">
+        <div class="info-row">
+          <div class="label">Visit Eye Atelier</div>
+          <div class="val">Eye Atelier<br><small>3849 US-9<br>Old Bridge, NJ 08857</small><br><small style="margin-top:10px;"><a href="https://www.google.com/maps/search/?api=1&query=Eye+Atelier+Eyewear%2C+3849+US-9%2C+Old+Bridge%2C+NJ+08857" target="_blank" rel="noopener">↗ Open in Google Maps</a>&nbsp;&nbsp;&nbsp;<a href="https://maps.apple.com/?q=Eye+Atelier+Eyewear&address=3849+US-9%2C+Old+Bridge%2C+NJ+08857" target="_blank" rel="noopener">↗ Open in Apple Maps</a></small></div>
+        </div>
+        <div class="info-row">
+          <div class="label">Telephone</div>
+          <div class="val"><a href="tel:+17326968933">(732) 696&middot;8933</a><br><small>Call for same-day eye exam scheduling.</small></div>
+        </div>
+        <div class="info-row">
+          <div class="label">Hours</div>
+          <div class="val" style="font-size:15px;">
+            <div class="hours-grid">
+              <span class="day">Mon – Thu</span><span>10 – 6</span>
+              <span class="day">Friday</span><span>10 – 5</span>
+              <span class="day">Saturday</span><span>10 – 4</span>
+              <span class="day">Sunday</span><span>Closed</span>
+            </div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="label">Services</div>
+          <div class="val" style="font-size:15px;"><small style="margin-top:0;">Eye exams &middot; Lens crafting &middot; Adjustments &middot; Repairs &middot; Trunk shows</small></div>
+        </div>
+        <div class="info-row">
+          <div class="label">Follow</div>
+          <div class="val">
+            <span class="social-icons">
+              <a href="https://www.instagram.com/eyeateliereyewear" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+              <a href="https://www.tiktok.com/@eye.atelier.eyewe" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg></a>
+            </span>
+          </div>
+        </div>
+        <a class="visit-cta" href="/#visit">Schedule an Eye Exam →</a>
+        <p class="visit-note">Walk-ins are always welcome to browse our collections, receive expert styling, and purchase eyewear. Comprehensive eye exams are available by appointment — call <a href="tel:+17326968933">(732) 696&middot;8933</a> or email <a href="mailto:LW@EyeAtelier.com">LW@EyeAtelier.com</a> to schedule.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -468,8 +526,8 @@
     <div><div class="foot-mark">Eye <em>Atelier</em><small>Est. Old Bridge · NJ</small></div></div>
     <div class="foot-col">
       <h5>Visit</h5>
-      <a href="https://share.google/XbxeWpjPBPiB6ob5s" target="_blank" rel="noopener">The Shoppes at Old Bridge</a>
-      <a href="https://share.google/XbxeWpjPBPiB6ob5s" target="_blank" rel="noopener">3849 US-9, 08857</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Eye+Atelier+Eyewear%2C+3849+US-9%2C+Old+Bridge%2C+NJ+08857" target="_blank" rel="noopener">Eye Atelier</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Eye+Atelier+Eyewear%2C+3849+US-9%2C+Old+Bridge%2C+NJ+08857" target="_blank" rel="noopener">3849 US-9, 08857</a>
       <a href="tel:+17326968933">(732) 696·8933</a>
     </div>
     <div class="foot-col">
