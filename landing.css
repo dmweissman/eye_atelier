@@ -285,6 +285,22 @@ a { color: inherit; text-decoration: none; }
 .cta-btn:hover { background: var(--bg); color: var(--ink); }
 .cta-btn.primary { background: var(--bg); color: var(--ink); }
 .cta-btn.primary:hover { background: transparent; color: var(--bg); }
+.cta-band p.cta-note {
+  grid-column: 1 / -1;
+  margin-top: clamp(28px, 4vw, 40px);
+  padding-top: clamp(20px, 3vw, 28px);
+  border-top: 1px solid rgba(236,231,222,0.18);
+  font-family: 'Jost', sans-serif;
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  opacity: 1;
+  color: rgba(236,231,222,0.72);
+  max-width: 62ch;
+}
+.cta-note a { color: inherit; border-bottom: 1px solid rgba(236,231,222,0.35); }
+.cta-note a:hover { color: var(--bg); }
 
 /* RELATED */
 .related {

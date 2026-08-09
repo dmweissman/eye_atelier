@@ -533,6 +533,9 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   .hours-grid .day { color: rgba(236,231,222,0.65); }
   .visit-cta { display:inline-flex; align-items:center; gap:10px; padding:15px 26px; border:1px solid var(--bg); border-radius:999px; font-size:11px; letter-spacing:0.26em; text-transform:uppercase; transition:all .2s; align-self:flex-start; margin-top:22px; }
   .visit-cta:hover { background: var(--bg); color: var(--ink); }
+  .visit-note { margin-top:18px; font-family:'Jost',sans-serif; font-size:13px; line-height:1.85; letter-spacing:0.01em; color: rgba(236,231,222,0.72); max-width:46ch; }
+  .visit-note a { color:inherit; border-bottom:1px solid rgba(236,231,222,0.35); }
+  .visit-note a:hover { color: var(--bg); }
 
   /* FOOTER */
   footer { background: var(--bg-deep); padding: 60px var(--pad) 30px; border-top: 1px solid var(--rule); }
@@ -686,7 +689,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
     </a>
     <div class="nav-right">
       <a href="tel:+17326968933" class="nav-phone">(732) 696&middot;8933</a>
-      <a href="#visit" class="nav-cta">Book a Fitting</a>
+      <a href="#visit" class="nav-cta">Schedule an Eye Exam</a>
       <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span></button>
     </div>
   </div>
@@ -731,7 +734,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
         <a href="#brands" class="meta-right">Scroll<br>↓<br>Begin</a>
       </div>
       <div class="hero-actions">
-        <a href="#visit" class="hero-cta">Book a Fitting</a>
+        <a href="#visit" class="hero-cta">Schedule an Eye Exam</a>
       </div>
     </div>
     <div class="hero-image">
@@ -1029,7 +1032,8 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
             </span>
           </div>
         </div>
-        <a class="visit-cta" href="https://maps.app.goo.gl/8p4qs5rmUXTJdb9JA?g_st=ic" target="_blank" rel="noopener">Book a Fitting →</a>
+        <a class="visit-cta" href="https://maps.app.goo.gl/8p4qs5rmUXTJdb9JA?g_st=ic" target="_blank" rel="noopener">Schedule an Eye Exam →</a>
+        <p class="visit-note">Walk-ins are always welcome to browse our collections, receive expert styling, and purchase eyewear.<br>Comprehensive eye exams are available by appointment.<br>To schedule an eye exam, please call us at <a href="tel:+17326968933">(732) 696&middot;8933</a> or email <a href="mailto:LW@EyeAtelier.com">LW@EyeAtelier.com</a>.</p>
       </div>
     </div>
   </div>
@@ -1083,7 +1087,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 <!-- MOBILE STICKY BAR -->
 <div class="mobile-sticky" aria-hidden="true">
   <a href="tel:+17326968933" class="ms-call">Call</a>
-  <a href="#visit" class="ms-book">Book a Fitting</a>
+  <a href="#visit" class="ms-book">Schedule an Eye Exam</a>
 </div>
 
 <!-- TWEAKS -->
