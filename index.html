@@ -268,27 +268,43 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   .wordmark small { display:block; font-family:'Jost',sans-serif; font-size:8px; letter-spacing:0.36em; margin-top:5px; color:var(--muted); }
 
   /* HERO */
-  .hero { max-width: var(--maxw); margin: 0 auto; padding: clamp(30px,6vw,80px) var(--pad) clamp(30px,5vw,80px); position: relative; }
-  .hero-edition { position:absolute; top:clamp(30px,6vw,80px); right:var(--pad); text-align:right; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--muted); line-height:1.8; }
+  .hero { max-width: var(--maxw); margin: 0 auto; padding: clamp(40px,7vw,96px) var(--pad) clamp(40px,6vw,88px); position: relative; }
+  .hero-edition { position:absolute; top:clamp(40px,7vw,96px); right:var(--pad); text-align:right; font-size:10px; letter-spacing:0.3em; text-transform:uppercase; color:var(--muted); line-height:1.8; }
   .hero-grid { display:grid; grid-template-columns: 1.1fr 1fr; gap: clamp(20px,4vw,60px); align-items:end; }
   .hero-title { font-size: clamp(72px, 13vw, 220px); line-height:0.88; letter-spacing:-0.03em; font-weight:400; }
   .hero-title .hero-eyebrow {
     display: block;
     font-family: 'Jost', sans-serif;
     font-size: 11px;
-    letter-spacing: 0.28em;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
     font-weight: 400;
     color: var(--ink-soft);
     opacity: 0.75;
-    margin-bottom: 22px;
+    margin-bottom: 26px;
   }
   .hero-title .l2 { display:block; padding-left:8%; font-family:'Fraunces',serif; font-style:italic; font-weight:300; }
   .hero-title .l3 { display:block; text-align:right; }
-  .hero-meta { display:flex; justify-content:space-between; margin-top:36px; gap:40px; align-items:start; padding-top:20px; border-top:1px solid var(--rule); }
-  .hero-meta p { margin:0; max-width:38ch; font-size:15px; line-height:1.6; color:var(--ink-soft); }
-  .hero-meta .meta-right { text-align:right; font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:var(--muted); }
-  .hero-image { position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--paper); }
+  .hero-meta { display:flex; justify-content:space-between; margin-top:44px; gap:40px; align-items:start; padding-top:26px; border-top:1px solid var(--rule); }
+  .hero-meta p { margin:0; max-width:38ch; font-size:15px; line-height:1.65; color:var(--ink-soft); }
+  .hero-meta .meta-right {
+    text-align:right; font-size:10px; letter-spacing:0.28em; text-transform:uppercase; color:var(--muted);
+    transition: color 0.25s ease, opacity 0.25s ease; opacity: 0.85;
+  }
+  a.meta-right:hover { color: var(--ink); opacity: 1; }
+  .hero-actions { margin-top: 32px; }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 12px;
+    padding: 17px 34px;
+    background: var(--ink); color: var(--bg); border: 1px solid var(--ink); border-radius: 999px;
+    font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+  .hero-cta:hover { background: transparent; color: var(--ink); }
+  .hero-image {
+    position:relative; aspect-ratio:4/5; overflow:hidden; background:var(--paper);
+    box-shadow: 0 40px 80px -20px rgba(26,24,21,0.22);
+  }
   .hero-image img { width:100%; height:100%; object-fit:cover; filter: contrast(1.02); }
   .hero-image .tag { position:absolute; top:20px; left:20px; background:var(--bg); padding:8px 14px; font-size:10px; letter-spacing:0.24em; text-transform:uppercase; }
   .hero-image .caption { position:absolute; bottom:18px; right:18px; font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:#fff; text-align:right; }
@@ -553,6 +569,8 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
     .hero-meta { flex-direction: column; margin-top: 22px; padding-top: 18px; gap: 18px; }
     .hero-meta p { font-size: 15px; max-width: none; }
     .hero-meta .meta-right { display: none; }
+    .hero-actions { margin-top: 24px; }
+    .hero-cta { width: 100%; justify-content: center; padding: 16px 28px; }
     .hero-image { aspect-ratio: 5/6; }
     .hero-image .tag { top: 14px; left: 14px; padding: 6px 10px; font-size: 9px; }
     .hero-image .caption { bottom: 14px; right: 14px; font-size: 9px; }
@@ -667,7 +685,10 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
       </h1>
       <div class="hero-meta">
         <p>A luxury optical boutique at the Shoppes of Old Bridge — Cartier, Dior, Gucci, Fendi, Loewe, Dita, Chanel, Matsuda, Akoni and more, curated, fitted, and cared for by hand. We service all of Monmouth and Middlesex Counties in NJ and the five boroughs of NYC for the luxury optical experience.</p>
-        <div class="meta-right">Scroll<br>↓<br>Begin</div>
+        <a href="#brands" class="meta-right">Scroll<br>↓<br>Begin</a>
+      </div>
+      <div class="hero-actions">
+        <a href="#visit" class="hero-cta">Book a Fitting</a>
       </div>
     </div>
     <div class="hero-image">
