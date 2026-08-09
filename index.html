@@ -422,6 +422,23 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   .credo-item h4 { font-family:'Bodoni Moda',serif; font-weight:400; font-size:22px; margin:18px 0 8px; }
   .credo-item p { font-size:13px; color:var(--ink-soft); margin:0; max-width:32ch; }
 
+  /* EXPERIENCE */
+  .experience-wrap { background: var(--bg-deep); padding: clamp(70px, 10vw, 140px) var(--pad); }
+  .experience-inner { max-width: var(--maxw); margin: 0 auto; }
+  .experience-lede {
+    font-family: 'Bodoni Moda', serif; font-weight: 400;
+    font-size: clamp(26px, 3.2vw, 40px); line-height: 1.3; letter-spacing: -0.01em;
+    max-width: 30ch; margin: 0 auto clamp(50px, 7vw, 90px); text-align: center;
+  }
+  .experience-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(30px, 4vw, 50px); }
+  .experience-item { text-align: center; }
+  .experience-icon { width: 40px; height: 40px; margin: 0 auto 22px; color: var(--accent); }
+  .experience-icon svg { width: 100%; height: 100%; }
+  .experience-item h3 { font-family: 'Bodoni Moda', serif; font-weight: 500; font-size: 19px; letter-spacing: -0.005em; margin-bottom: 12px; }
+  .experience-item p { font-size: 14px; line-height: 1.65; color: var(--ink-soft); max-width: 30ch; margin: 0 auto; }
+  @media (max-width: 900px) { .experience-grid { grid-template-columns: 1fr 1fr; row-gap: 44px; } }
+  @media (max-width: 560px) { .experience-grid { grid-template-columns: 1fr; max-width: 340px; margin: 0 auto; } }
+
   /* AREAS */
   .areas-wrap { background: var(--bg-deep); padding: clamp(60px, 9vw, 110px) var(--pad); }
   .areas-inner { max-width: var(--maxw); margin: 0 auto; display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(30px, 5vw, 80px); align-items: start; }
@@ -737,6 +754,43 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
       <div class="n">Nº <em>03</em></div>
       <h4>All ages, welcomed</h4>
       <p>From the first pair at five to the thirtieth at fifty.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience-wrap" aria-labelledby="experience-heading">
+  <div class="experience-inner">
+    <p class="experience-lede" id="experience-heading">Luxury isn't just the brands we carry. It's the experience we create for every guest who walks through our doors.</p>
+    <div class="experience-grid">
+      <div class="experience-item">
+        <div class="experience-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9 12 2l9 7-9 13L3 9Z"/><path d="M3 9h18"/><path d="M9 9l3 13 3-13"/></svg>
+        </div>
+        <h3>Curated Collections</h3>
+        <p>We carefully select every collection for exceptional design, craftsmanship, and individuality.</p>
+      </div>
+      <div class="experience-item">
+        <div class="experience-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/></svg>
+        </div>
+        <h3>Personal Styling</h3>
+        <p>Every frame is chosen with your lifestyle, face shape, and personality in mind.</p>
+      </div>
+      <div class="experience-item">
+        <div class="experience-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <h3>Premium Vision</h3>
+        <p>We combine the world's finest lenses with expert fitting for exceptional clarity and comfort.</p>
+      </div>
+      <div class="experience-item">
+        <div class="experience-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1 12H7L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+        </div>
+        <h3>Boutique Experience</h3>
+        <p>Relax, explore, and discover eyewear in a welcoming luxury environment unlike traditional optical stores.</p>
+      </div>
     </div>
   </div>
 </section>
