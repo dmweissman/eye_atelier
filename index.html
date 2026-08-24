@@ -1263,6 +1263,9 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   overlay.addEventListener('click', function(e){
     if (e.target === overlay) closeModal();
   });
+  modal.addEventListener('click', function(e){
+    e.stopPropagation();
+  });
   document.addEventListener('keydown', function(e){
     if (e.key === 'Escape' && !overlay.hidden) closeModal();
   });
