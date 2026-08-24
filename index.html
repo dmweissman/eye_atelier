@@ -667,6 +667,24 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   }
 
   /* (mobile-sticky base styles moved above the @media block) */
+
+/* EYE EXAM MODAL (shared, site-wide) */
+.exam-modal-overlay { position: fixed; inset: 0; z-index: 1200; background: rgba(26,26,23,0.72); display: flex; align-items: center; justify-content: center; padding: 24px; }
+.exam-modal-overlay[hidden] { display: none; }
+.exam-modal { position: relative; background: var(--bg); color: var(--ink); max-width: 440px; width: 100%; padding: 44px 36px 32px; border-radius: 4px; box-shadow: 0 40px 100px -20px rgba(0,0,0,0.5); text-align: left; }
+.exam-modal-close { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; background: transparent; border: 1px solid rgba(26,26,23,0.2); border-radius: 50%; font-size: 20px; line-height: 1; color: var(--ink); cursor: pointer; transition: all .2s; padding: 0; }
+.exam-modal-close:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.exam-modal h2 { font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: clamp(26px, 3.4vw, 34px); letter-spacing: -0.01em; margin: 0 0 14px; }
+.exam-modal-text { font-family: 'Fraunces', serif; font-style: italic; font-weight: 300; font-size: 16px; line-height: 1.6; opacity: 0.85; margin: 0 0 28px; }
+.exam-modal-actions { display: flex; flex-direction: column; gap: 12px; margin-bottom: 26px; }
+.exam-modal-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 15px 22px; border-radius: 999px; border: 1px solid var(--ink); font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; transition: all .2s; text-decoration: none; color: var(--ink); }
+.exam-modal-btn.primary { background: var(--ink); color: var(--bg); }
+.exam-modal-btn.primary:hover { background: transparent; color: var(--ink); }
+.exam-modal-btn:not(.primary):hover { background: var(--ink); color: var(--bg); }
+.exam-modal-note { font-family: 'Jost', sans-serif; font-size: 12.5px; line-height: 1.7; color: var(--ink); opacity: 0.65; margin: 0; padding-top: 20px; border-top: 1px solid rgba(26,26,23,0.14); }
+@media (max-width: 480px) {
+  .exam-modal { padding: 36px 24px 26px; }
+}
 </style>
 </head>
 <body>
@@ -689,7 +707,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
     </a>
     <div class="nav-right">
       <a href="tel:+17326968933" class="nav-phone">(732) 696&middot;8933</a>
-      <a href="#visit" class="nav-cta">Schedule an Eye Exam</a>
+      <a href="tel:+17326968933" class="nav-cta js-exam-cta">Schedule an Eye Exam</a>
       <button class="nav-burger" id="navBurger" aria-label="Open menu"><span></span></button>
     </div>
   </div>
@@ -734,7 +752,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
         <a href="#brands" class="meta-right">Scroll<br>↓<br>Begin</a>
       </div>
       <div class="hero-actions">
-        <a href="#visit" class="hero-cta">Schedule an Eye Exam</a>
+        <a href="tel:+17326968933" class="hero-cta js-exam-cta">Schedule an Eye Exam</a>
       </div>
     </div>
     <div class="hero-image">
@@ -1032,7 +1050,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
             </span>
           </div>
         </div>
-        <a class="visit-cta" href="https://maps.app.goo.gl/8p4qs5rmUXTJdb9JA?g_st=ic" target="_blank" rel="noopener">Schedule an Eye Exam →</a>
+        <a class="visit-cta js-exam-cta" href="tel:+17326968933">Schedule an Eye Exam →</a>
         <p class="visit-note">Walk-ins are always welcome to browse our collections, receive expert styling, and purchase eyewear.<br>Comprehensive eye exams are available by appointment.<br>To schedule an eye exam, please call us at <a href="tel:+17326968933">(732) 696&middot;8933</a> or email <a href="mailto:LW@EyeAtelier.com">LW@EyeAtelier.com</a>.</p>
       </div>
     </div>
@@ -1087,7 +1105,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 <!-- MOBILE STICKY BAR -->
 <div class="mobile-sticky" aria-hidden="true">
   <a href="tel:+17326968933" class="ms-call">Call</a>
-  <a href="#visit" class="ms-book">Schedule an Eye Exam</a>
+  <a href="tel:+17326968933" class="ms-book js-exam-cta">Schedule an Eye Exam</a>
 </div>
 
 <!-- TWEAKS -->
@@ -1204,6 +1222,59 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
   window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+<div class="exam-modal-overlay" id="examModalOverlay" hidden>
+  <div class="exam-modal" role="dialog" aria-modal="true" aria-labelledby="examModalTitle">
+    <button type="button" class="exam-modal-close" id="examModalClose" aria-label="Close">&times;</button>
+    <h2 id="examModalTitle">Schedule an Eye Exam</h2>
+    <p class="exam-modal-text">Choose the easiest way to schedule your comprehensive eye exam with our optometrist.</p>
+    <div class="exam-modal-actions">
+      <a class="exam-modal-btn primary" href="tel:+17326968933">Call (732) 696&middot;8933</a>
+      <a class="exam-modal-btn" href="mailto:LW@EyeAtelier.com">Email LW@EyeAtelier.com</a>
+    </div>
+    <p class="exam-modal-note">Walk-ins are always welcome for eyewear shopping, styling, adjustments, and repairs. Eye exam appointments are only needed to see our optometrist.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var overlay = document.getElementById('examModalOverlay');
+  if (!overlay) return;
+  var modal = overlay.querySelector('.exam-modal');
+  var closeBtn = document.getElementById('examModalClose');
+  var lastFocused = null;
+
+  function openModal(e){
+    if (e) e.preventDefault();
+    lastFocused = document.activeElement;
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function closeModal(){
+    overlay.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
+  }
+  document.querySelectorAll('.js-exam-cta').forEach(function(el){
+    el.addEventListener('click', openModal);
+  });
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !overlay.hidden) closeModal();
+  });
+  modal.addEventListener('keydown', function(e){
+    if (e.key !== 'Tab') return;
+    var focusable = modal.querySelectorAll('a[href], button');
+    if (!focusable.length) return;
+    var first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+})();
 </script>
 
 </body>

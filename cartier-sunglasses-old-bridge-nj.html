@@ -57,7 +57,7 @@
     <div class="nav-right">
       <span class="social-icons"><a href="https://www.instagram.com/eyeateliereyewear" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.332.014 7.052.072 2.695.272.273 2.69.073 7.052.014 8.332 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.332 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a><a href="https://www.tiktok.com/@eye.atelier.eyewe" target="_blank" rel="noopener noreferrer" aria-label="Eye Atelier on TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg></a></span>
       <a href="tel:+17326968933" class="nav-phone">(732) 696·8933</a>
-      <a href="/#visit" class="nav-cta">Schedule an Eye Exam</a>
+      <a href="tel:+17326968933" class="nav-cta js-exam-cta">Schedule an Eye Exam</a>
     </div>
   </nav>
 </header>
@@ -131,7 +131,7 @@
     <div class="cta-actions">
       <a class="cta-btn primary" href="tel:+17326968933">Call (732) 696·8933</a>
       <a class="cta-btn" href="https://share.google/XbxeWpjPBPiB6ob5s" target="_blank" rel="noopener">Directions</a>
-      <a class="cta-btn" href="/#visit">Schedule an Eye Exam</a>
+      <a class="cta-btn js-exam-cta" href="tel:+17326968933">Schedule an Eye Exam</a>
     </div>
     <p class="cta-note">Walk-ins are always welcome to browse our collections, receive expert styling, and purchase eyewear.<br>Comprehensive eye exams are available by appointment.<br>To schedule an eye exam, please call us at <a href="tel:+17326968933">(732) 696&middot;8933</a> or email <a href="mailto:LW@EyeAtelier.com">LW@EyeAtelier.com</a>.</p>
     <div class="visit-grid">
@@ -223,8 +223,61 @@
 
 <div class="mobile-sticky" aria-hidden="true">
   <a href="tel:+17326968933" class="ms-call">Call</a>
-  <a href="/#visit" class="ms-book">Schedule an Eye Exam</a>
+  <a href="tel:+17326968933" class="ms-book js-exam-cta">Schedule an Eye Exam</a>
 </div>
+
+<div class="exam-modal-overlay" id="examModalOverlay" hidden>
+  <div class="exam-modal" role="dialog" aria-modal="true" aria-labelledby="examModalTitle">
+    <button type="button" class="exam-modal-close" id="examModalClose" aria-label="Close">&times;</button>
+    <h2 id="examModalTitle">Schedule an Eye Exam</h2>
+    <p class="exam-modal-text">Choose the easiest way to schedule your comprehensive eye exam with our optometrist.</p>
+    <div class="exam-modal-actions">
+      <a class="exam-modal-btn primary" href="tel:+17326968933">Call (732) 696&middot;8933</a>
+      <a class="exam-modal-btn" href="mailto:LW@EyeAtelier.com">Email LW@EyeAtelier.com</a>
+    </div>
+    <p class="exam-modal-note">Walk-ins are always welcome for eyewear shopping, styling, adjustments, and repairs. Eye exam appointments are only needed to see our optometrist.</p>
+  </div>
+</div>
+<script>
+(function(){
+  var overlay = document.getElementById('examModalOverlay');
+  if (!overlay) return;
+  var modal = overlay.querySelector('.exam-modal');
+  var closeBtn = document.getElementById('examModalClose');
+  var lastFocused = null;
+
+  function openModal(e){
+    if (e) e.preventDefault();
+    lastFocused = document.activeElement;
+    overlay.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+  function closeModal(){
+    overlay.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocused && lastFocused.focus) lastFocused.focus();
+  }
+  document.querySelectorAll('.js-exam-cta').forEach(function(el){
+    el.addEventListener('click', openModal);
+  });
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function(e){
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && !overlay.hidden) closeModal();
+  });
+  modal.addEventListener('keydown', function(e){
+    if (e.key !== 'Tab') return;
+    var focusable = modal.querySelectorAll('a[href], button');
+    if (!focusable.length) return;
+    var first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+})();
+</script>
 
 </body>
 </html>
