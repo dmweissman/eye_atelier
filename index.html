@@ -510,6 +510,14 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
     transition: background 0.25s ease, color 0.25s ease;
   }
   .reviews-btn:hover { background: var(--ink); color: var(--bg); }
+  .reviews-secondary-link {
+    display: block; margin-top: 18px; width: fit-content; margin-left: auto; margin-right: auto;
+    font-family: 'Jost', sans-serif; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--ink-soft); opacity: 0.6;
+    border-bottom: 1px solid rgba(26,26,23,0.25); padding-bottom: 2px;
+    transition: opacity 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+  .reviews-secondary-link:hover { opacity: 1; border-color: var(--ink); color: var(--ink); }
   @media (max-width: 900px) {
     .reviews-grid { grid-template-columns: 1fr; gap: 48px; max-width: 440px; margin: 0 auto; }
   }
@@ -1007,6 +1015,7 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
     </div>
     <div class="reviews-cta">
       <a class="reviews-btn" href="https://share.google/XbxeWpjPBPiB6ob5s" target="_blank" rel="noopener">Read More Google Reviews</a>
+      <a class="reviews-secondary-link" href="https://g.page/r/CR9EYPIg8gQTEAE/review" target="_blank" rel="noopener">Leave Us a Google Review</a>
     </div>
   </div>
 </section>
